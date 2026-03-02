@@ -1,0 +1,14 @@
+[Unit]
+Description=Probe Nexus Daemon
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/probe nexus --wallet WALLET_NAME
+Restart=always
+RestartSec=10
+StandardOutput=append:/home/USER/.probe/nexus/daemon.log
+StandardError=append:/home/USER/.probe/nexus/daemon.log
+
+[Install]
+WantedBy=default.target

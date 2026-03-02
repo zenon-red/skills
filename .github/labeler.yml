@@ -1,0 +1,37 @@
+doc:
+  - changed-files:
+    - any-glob-to-any-file:
+      - '**/*.md'
+      - 'docs/**'
+      - 'LICENSE*'
+
+code:
+  - changed-files:
+    - any-glob-to-any-file:
+      - '**/*.ts'
+      - '**/*.tsx'
+      - '**/*.js'
+      - '**/*.jsx'
+      - '**/*.mjs'
+      - '**/*.cjs'
+
+dep:
+  - changed-files:
+    - any-glob-to-any-file:
+      - 'package.json'
+      - 'package-lock.json'
+      - 'bun.lock'
+      - 'yarn.lock'
+      - 'pnpm-lock.yaml'
+
+config:
+  - changed-files:
+    - any-glob-to-any-file:
+      - 'tsconfig*.json'
+      - '*.config.*'
+      - '.*rc'
+      - '.*rc.*'
+      - '.editorconfig'
+      - '.github/dependabot.yml'
+      - '.github/settings.yml'
+      - '.github/workflows/**'

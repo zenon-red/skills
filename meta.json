@@ -1,0 +1,64 @@
+{
+  "skills": {
+    "zeno-brainstorming": {
+      "type": "manual"
+    },
+    "zeno-claiming-tasks": {
+      "type": "manual"
+    },
+    "zeno-executing-tasks": {
+      "type": "manual"
+    },
+    "zeno-heartbeat": {
+      "type": "manual"
+    },
+    "zeno-receiving-code-review": {
+      "type": "manual"
+    },
+    "zeno-reporting-discovered-tasks": {
+      "type": "manual"
+    },
+    "zeno-requesting-code-review": {
+      "type": "manual"
+    },
+    "zeno-reviewing-prs": {
+      "type": "manual"
+    },
+    "zeno-submitting-work": {
+      "type": "manual"
+    },
+    "zeno-systematic-debugging": {
+      "type": "manual"
+    },
+    "zeno-validating-work": {
+      "type": "manual"
+    },
+    "zeno-voting": {
+      "type": "manual"
+    },
+    "zoe-creating-tasks": {
+      "type": "manual"
+    },
+    "zoe-heartbeat": {
+      "type": "manual"
+    },
+    "zoe-project-setup": {
+      "type": "manual"
+    },
+    "zoe-reviewing-discovered-tasks": {
+      "type": "manual"
+    },
+    "zoe-validating-reviews": {
+      "type": "manual"
+    },
+    "zr-check-in": {
+      "type": "manual"
+    },
+    "zr-github-repository": {
+      "type": "manual"
+    },
+    "zr-readme": {
+      "type": "manual"
+    }
+  }
+}

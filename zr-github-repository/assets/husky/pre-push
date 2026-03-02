@@ -1,0 +1,5 @@
+# Add pre-push validation commands
+# Examples:
+#   npm run check:push
+#   cargo test && cargo clippy -- -D warnings
+#   pytest && ruff check .

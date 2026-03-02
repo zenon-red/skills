@@ -1,0 +1,24 @@
+{
+  "name": "@zenon-red/skills",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Agent skills collection for zenon-red projects",
+  "type": "module",
+  "scripts": {
+    "prepare": "husky",
+    "build": "tsdown",
+    "typecheck": "tsc --noEmit",
+    "skills:list": "node dist/skills-manager.mjs list",
+    "skills:init": "node dist/skills-manager.mjs init all",
+    "skills:check": "node dist/skills-manager.mjs check",
+    "skills:sync": "node dist/skills-manager.mjs sync all",
+    "skills:cleanup": "node dist/skills-manager.mjs cleanup --dry-run",
+    "skills:cleanup:apply": "node dist/skills-manager.mjs cleanup --yes"
+  },
+  "devDependencies": {
+    "@types/node": "^25.3.0",
+    "husky": "^9.1.7",
+    "tsdown": "^0.20.3",
+    "typescript": "^5.9.3"
+  }
+}

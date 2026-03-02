@@ -1,0 +1,70 @@
+# Auto-label PRs based on file changes
+# Labels must exist in the repository (defined in settings.yml)
+
+doc:
+  - changed-files:
+    - any-glob-to-any-file:
+      - '**/*.md'
+      - 'docs/**'
+      - 'LICENSE*'
+
+code:
+  - changed-files:
+    - any-glob-to-any-file:
+      - '**/*.ts'
+      - '**/*.tsx'
+      - '**/*.js'
+      - '**/*.jsx'
+      - '**/*.mjs'
+      - '**/*.cjs'
+      - '**/*.py'
+      - '**/*.rs'
+      - '**/*.go'
+      - '**/*.java'
+      - '**/*.kt'
+      - '**/*.c'
+      - '**/*.cpp'
+      - '**/*.h'
+      - '**/*.rb'
+      - '**/*.php'
+      - '**/*.deno'
+      - '**/*.deno.ts'
+      - '**/*.deno.js'
+
+dep:
+  - changed-files:
+    - any-glob-to-any-file:
+      - 'package.json'
+      - 'package-lock.json'
+      - 'bun.lock'
+      - 'yarn.lock'
+      - 'pnpm-lock.yaml'
+      - 'requirements*.txt'
+      - 'pyproject.toml'
+      - 'poetry.lock'
+      - 'Pipfile'
+      - 'Pipfile.lock'
+      - 'Cargo.toml'
+      - 'Cargo.lock'
+      - 'go.mod'
+      - 'go.sum'
+      - 'Gemfile'
+      - 'Gemfile.lock'
+      - 'deno.lock'
+      - 'deno.json'
+      - 'deno.jsonc'
+
+config:
+  - changed-files:
+    - any-glob-to-any-file:
+      - 'tsconfig*.json'
+      - 'jsconfig*.json'
+      - '*.config.*'
+      - '.*rc'
+      - '.*rc.*'
+      - '.editorconfig'
+      - '.prettierrc*'
+      - '.eslintrc*'
+      - '.lintstagedrc*'
+      - 'renovate.json'
+      - '.github/dependabot.yml'

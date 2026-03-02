@@ -1,0 +1,5 @@
+# Add validation commands for your stack
+# Examples:
+#   npm run lint:staged && npm run typecheck
+#   cargo fmt --check && cargo clippy
+#   ruff check . && mypy .

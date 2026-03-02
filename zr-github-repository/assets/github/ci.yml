@@ -1,0 +1,39 @@
+name: ci
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      # Add setup step for your stack:
+      # - uses: actions/setup-node@v4
+      #   with:
+      #     node-version: 22
+      #     cache: npm
+      # - uses: dtolnay/rust-toolchain@stable
+      # - uses: actions/setup-python@v5
+      #   with:
+      #     python-version: "3.12"
+
+      - name: Install
+        run: # npm ci / cargo build / pip install -r requirements.txt
+
+      - name: Lint
+        run: # npm run lint / cargo clippy / ruff check
+
+      - name: Test
+        run: # npm test / cargo test / pytest
+
+      - name: Build
+        run: # npm run build / cargo build --release / go build
