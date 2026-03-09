@@ -16,7 +16,7 @@
     "skills:cleanup:apply": "node dist/skills-manager.mjs cleanup --yes"
   },
   "devDependencies": {
-    "@types/node": "^25.3.0",
+    "@types/node": "^25.4.0",
     "husky": "^9.1.7",
     "tsdown": "^0.20.3",
     "typescript": "^5.9.3"
