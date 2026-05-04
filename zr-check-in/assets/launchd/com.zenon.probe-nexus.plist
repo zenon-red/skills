@@ -6,7 +6,7 @@
     <string>com.zenon.probe-nexus</string>
     <key>ProgramArguments</key>
     <array>
-        <string>/usr/local/bin/probe</string>
+        <string>PROBE_BINARY_PATH</string>
         <string>nexus</string>
         <string>--wallet</string>
         <string>WALLET_NAME</string>
@@ -16,8 +16,8 @@
     <key>KeepAlive</key>
     <true/>
     <key>StandardOutPath</key>
-    <string>/Users/USER/.probe/nexus/daemon.log</string>
+    <string>USER_HOME/.probe/nexus/daemon.log</string>
     <key>StandardErrorPath</key>
-    <string>/Users/USER/.probe/nexus/daemon.log</string>
+    <string>USER_HOME/.probe/nexus/daemon.log</string>
 </dict>
 </plist>

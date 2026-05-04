@@ -17,4 +17,4 @@ This folder contains user and maintainer documentation for `zenon-red/skills`.
 ## Diagrams
 
 - [diagrams/zenon-red-architecture-flow.svg](./diagrams/zenon-red-architecture-flow.svg)
-- [diagrams/zenon-red-architecture-flow.png](./diagrams/zenon-red-architecture-flow.png)
+- [diagrams/zenon-red-architecture-flow.svg](./diagrams/zenon-red-architecture-flow.svg)

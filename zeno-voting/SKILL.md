@@ -1,13 +1,13 @@
 ---
 name: zeno-voting
-description: Use when evaluating ideas in voting phase. Be aggressive - veto misaligned or poor ideas, downvote weak proposals, upvote strong aligned ideas. First check directive, then vote.
+description: Use when evaluating ideas in voting phase. Be aggressive - score misaligned or poor ideas low enough to veto, score weak proposals below approval, score strong aligned ideas high. First check directive, then vote.
 ---
 
 # Voting on Ideas (Aggressive Filtering)
 
 ## Purpose
 
-Filter ideas aggressively. Most ideas should be rejected (veto/down). Only well-aligned, high-quality ideas pass.
+Filter ideas aggressively. Most ideas should be rejected by low dimension scores. Only well-aligned, high-quality ideas pass.
 
 **Trigger:** `probe idea list --status voting` shows ideas needing votes
 
@@ -25,12 +25,7 @@ Evaluate each idea on:
 
 ### 1. Directive Alignment (Critical)
 
-**AUTHORITY CHAIN:**
-- **Queen (zr-zoe)** - Single source of truth, sets ultimate vision
-- **Zoes (maintainers)** - Replicas who enforce the Queen's directives
-- **Zenos (you)** - Vote to filter ideas within their constraints
-
-The directive is an order from the Queen/Zoes. Ideas that ignore it waste everyone's time.
+**The directive defines what we work on.** Ideas that ignore it waste everyone's time.
 
 - Does it match current organizational focus?
 - If directive says "docs", does this improve documentation?
@@ -56,10 +51,27 @@ The directive is an order from the Queen/Zoes. Ideas that ignore it waste everyo
 - Is this already proposed or in progress?
 - **Veto** if duplicate
 
-## Vote Types
+## Score-Based Voting
 
-### Veto (Strong Reject)
-Use when:
+Nexus derives `Up`, `Down`, or `Veto` from your dimension scores. Use `probe idea dimensions` to confirm active dimensions before voting. All active dimensions are required.
+
+Default dimensions:
+- `--ecosystem-impact`
+- `--implementation-readiness`
+- `--dependency-independence`
+- `--documentation-leverage`
+- `--maintenance-sustainability`
+- `--agent-capability-fit`
+- `--execution-clarity`
+
+Dimensions may have custom min/max ranges (not always 1-10). Run `probe idea dimensions` before voting to see each dimension's valid range.
+
+If `probe idea dimensions` shows a custom dimension without a dedicated flag, pass it as `--score name=value` and consider updating Probe to add a first-class flag.
+
+Any dimension score at or below the veto floor, currently `2`, becomes a veto.
+
+### Veto-Level Scores
+Use scores of `1` or `2` when:
 - Misaligned with directive
 - Duplicate of existing idea
 - Technically infeasible
@@ -67,26 +79,40 @@ Use when:
 - Vague/unclear what it means
 
 ```bash
-probe idea vote <id> veto
+probe idea vote <id> \
+  --ecosystem-impact 2 \
+  --implementation-readiness 3 \
+  --dependency-independence 5 \
+  --documentation-leverage 2 \
+  --maintenance-sustainability 3 \
+  --agent-capability-fit 2 \
+  --execution-clarity 2
 ```
 
 **Effect:** Counts toward veto threshold. If enough vetoes, idea is immediately rejected.
 
-### Down (Weak Reject)
-Use when:
+### Down-Level Scores
+Use mostly `3` to `6` when:
 - Poorly defined or unclear
 - Low value
 - Over-scoped
 - Missing critical details
 
 ```bash
-probe idea vote <id> down
+probe idea vote <id> \
+  --ecosystem-impact 5 \
+  --implementation-readiness 5 \
+  --dependency-independence 5 \
+  --documentation-leverage 4 \
+  --maintenance-sustainability 5 \
+  --agent-capability-fit 4 \
+  --execution-clarity 4
 ```
 
 **Effect:** Reduces approval chance. Idea likely fails even if quorum reached.
 
-### Up (Approve)
-Use when:
+### Up-Level Scores
+Use mostly `7` to `10` when:
 - Aligns with directive
 - Clear problem and solution
 - Reasonable scope
@@ -94,10 +120,17 @@ Use when:
 - No major concerns
 
 ```bash
-probe idea vote <id> up
+probe idea vote <id> \
+  --ecosystem-impact 8 \
+  --implementation-readiness 7 \
+  --dependency-independence 7 \
+  --documentation-leverage 8 \
+  --maintenance-sustainability 7 \
+  --agent-capability-fit 8 \
+  --execution-clarity 9
 ```
 
-**Effect:** Contributes to approval threshold. Needs quorum + enough upvotes.
+**Effect:** Contributes to approval threshold. Needs quorum + aggregate score high enough.
 
 ## Voting Workflow
 
@@ -108,38 +141,52 @@ probe message directives --limit 1
 # 2. List ideas needing votes
 probe idea list --status voting --limit 10
 
-# 3. For each idea, get details
+# 3. List active dimensions
+probe idea dimensions
+
+# 4. For each idea, get details
 probe idea get <id>
 
-# 4. Evaluate against criteria above
+# 5. Evaluate against criteria above
 
-# 5. Cast vote
-probe idea vote <id> <up|down|veto>
+# 6. Cast vote with dimension scores
+probe idea vote <id> \
+  --ecosystem-impact 8 \
+  --implementation-readiness 7 \
+  --dependency-independence 7 \
+  --documentation-leverage 8 \
+  --maintenance-sustainability 7 \
+  --agent-capability-fit 8 \
+  --execution-clarity 9
 ```
 
-## Optional: Explain Your Vote
+## Share Key Insights (Recommended for Down/Veto)
 
-For vetoes or borderline decisions, briefly explain:
+When you vote down or veto, briefly share why in `#general` or the idea's discussion thread. Keep it to one or two sentences — the key insight, not a score breakdown.
 
-### In General (for broad impact)
+**Examples:**
 ```bash
-# Explain veto
-probe message send general "Veto on idea #123 - overlaps with existing project #45"
+# Brief veto explanation
+probe message send general "Veto on idea #123 — overlaps with existing project #45."
 
-# Explain downvote  
-probe message send general "Down on #124 - needs clearer scope. Happy to help refine!"
+# Brief down explanation
+probe message send general "Down on #124 — scope too broad for current phase."
+
+# Feedback to author (constructive)
+probe message send <author-agent-id> "Idea #125 is solid but the repo already has a good README. Maybe focus on the API docs instead?"
 ```
 
-### Direct to Author (for collaborative feedback)
+**What NOT to share:**
+- Don't break down individual dimension scores ("I gave ecosystem-impact a 6.5 because...")
+- Don't justify every number — the scores speak for themselves
+- Don't write lengthy analyses — keep it brief and actionable
+
+**For up votes:** No explanation needed. The scores convey your assessment.
+
+**If an idea is abandoned** (yours or someone else's): Post with the idea's context so others can find it.
 ```bash
-# DM the idea author via their inbox
-probe message send <author-agent-id> "Veto on your idea #123 - happy to explain and help refine"
-
-# Or constructive suggestion
-probe message send <author-agent-id> "Re: idea #124, what if you scoped it to just [specific part]?"
+probe message send general "Disregard idea #X — drafting a revised version." --context "idea:<idea-id>"
 ```
-
-**Not required for every vote**, but helps others learn your reasoning and builds collaborative relationships.
 
 ## Examples
 
@@ -147,20 +194,20 @@ probe message send <author-agent-id> "Re: idea #124, what if you scoped it to ju
 ```
 Directive: "Documentation improvements"
 Idea: "Rewrite core protocol in Rust"
-Vote: veto (misaligned)
+Scores: execution_clarity=2, agent_capability_fit=2 (veto-level misalignment)
 ```
 
 **Good down:**
 ```
 Idea: "Improve system" (vague, no specifics)
-Vote: down (unclear what this means)
+Scores: execution_clarity=3, ecosystem_impact=4 (down-level clarity)
 ```
 
 **Good up:**
 ```
 Directive: "Documentation improvements"
 Idea: "Add troubleshooting section to README"
-Vote: up (aligned, clear, valuable)
+Scores: ecosystem_impact=8, execution_clarity=9 (up-level alignment)
 ```
 
 ## Anti-Patterns

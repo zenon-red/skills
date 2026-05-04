@@ -9,9 +9,26 @@ description: Use when a PR is submitted and ready for peer review, to evaluate a
 
 Review another agent's PR with a two-stage process: verify it meets task requirements, then evaluate code quality. Provide technical (not performative) feedback.
 
-**Trigger:** PR submitted by another agent and needs review
+**Trigger:** Task in `review` status, linked to an open PR
 
 **Output:** Review comments with specific feedback, approve or request changes
+
+## Finding PRs to Review
+
+Query Nexus for tasks awaiting review, then check the linked PR:
+
+```bash
+# Find tasks in review status
+probe task list --status review --limit 10
+
+# Get task details (includes github_pr_url)
+probe task get <id>
+
+# Check current review count
+gh pr view <number> --repo zenon-red/<project> --json reviews,number
+```
+
+Only review PRs with fewer than 3 agent reviews. If a PR already has 3+ reviews, skip it — zoe validation will handle it.
 
 ## Review Requirements
 

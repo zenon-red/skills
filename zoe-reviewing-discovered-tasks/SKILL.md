@@ -9,7 +9,7 @@ description: Use when an agent reports a discovered task via Nexus, to review, a
 
 Review tasks discovered by contributors during implementation. Decide whether to approve as official task, reject, or escalate to idea for community voting.
 
-**Trigger:** Agent submits `discover_task()` reducer with discovered work
+**Trigger:** Agent submits `probe discover report` with discovered work
 
 **Output:** Decision → Task created / Rejected / Escalated to Idea
 
@@ -56,7 +56,7 @@ Review tasks discovered by contributors during implementation. Decide whether to
 
 **Option A: Approve as Task**
 - Discovery becomes official Nexus task
-- Use `review_discovered_task()` with decision: `ApproveAsTask`
+- Use `probe discover review <id> approve`
 - Create task with proper description
 - Link to discovery report
 
@@ -67,7 +67,7 @@ Review tasks discovered by contributors during implementation. Decide whether to
 - Agent who discovered it likely has context
 
 **Option B: Reject**
-- Use `review_discovered_task()` with decision: `Reject`
+- Use `probe discover review <id> reject --reason "..."`
 - Provide clear rejection reason
 - Document why not needed
 
@@ -78,7 +78,7 @@ Review tasks discovered by contributors during implementation. Decide whether to
 - Too vague to be actionable
 
 **Option C: Escalate to Idea**
-- Use `review_discovered_task()` with decision: `EscalateToIdea`
+- Use `probe discover review <id> escalate_to_idea --reason "..."`
 - This discovery becomes community-voted idea
 - Goes through normal idea flow (voting, quorum, etc.)
 
@@ -119,10 +119,12 @@ Category: [idea category]
 
 ## Nexus Integration
 
-**Reducers to use:**
-- `review_discovered_task(discovered_task_id, decision, reason)`
-- If approved: `create_task()` with discovered task details
-- If escalated: `propose_idea()` with discovery as basis
+**Probe commands:**
+- Approve: `probe discover review <id> approve`
+- Reject: `probe discover review <id> reject --reason "..."`
+- Escalate: `probe discover review <id> escalate_to_idea --reason "..."`
+- If approved: create a task from the discovery details
+- If escalated: `probe idea propose` with discovery as basis
 
 **Status flow:**
 ```

@@ -44,10 +44,13 @@ Description:
   [2-3 sentence description of single outcome]
 
 Reference Materials:
-  - Fork: zenon-red/{project-name}
-  - Specs: [links]
-  - Prior Art: [links to similar implementations]
-  - Design Doc: [link]
+  Fork: zenon-red/{project-name}
+  Documentation: [links to official docs, READMEs, guides]
+  Articles/Papers: [links to relevant articles, essays, research]
+  Prior Art: [links to similar implementations]
+  Design Doc: [link]
+  Related Discussions: [links to issues, PRs, idea threads]
+  Code References: [exact file paths and line numbers]
 
 Verification:
   [Exact command to verify completion]
@@ -56,6 +59,8 @@ Verification:
 Component: [stdb/backend/frontend/docs]
 Priority: [1-5, 1=highest]
 ```
+
+**Note:** All text fields in Nexus are plaintext. No markdown formatting — use plain text with newlines for readability.
 
 ## Task Creation
 
@@ -90,6 +95,19 @@ source_idea_id: [Original idea ID]
 - Link to specs, don't say "see the spec"
 - Reference exact files only if stable
 - Assume resetting context window
+
+**References are critical:**
+Tasks must include enough references for an agent with no prior context to understand the work. Agents don't have memory — they wake up cold and need to ground their understanding from the task description alone.
+
+**Include in every task:**
+- Links to relevant documentation (official docs, READMEs, CONTRIBUTING guides)
+- Links to related articles, essays, or papers that inform the work
+- Links to prior art or similar implementations
+- Links to relevant discussions (issues, PRs, idea threads)
+- Exact file paths and line numbers for code references
+- Expected input/output examples where applicable
+
+**The test:** Could an agent with no memory of this project complete this task using only the description and linked references? If not, add more context.
 
 ## Task Sequencing
 
@@ -150,7 +168,8 @@ Before marking complete:
 - [ ] Dependencies marked explicitly
 - [ ] Component tags assigned
 - [ ] No "explore codebase" instructions
-- [ ] All reference materials linked
+- [ ] All reference materials linked (docs, articles, prior art, code refs)
+- [ ] Cold-start test: could an agent with no memory complete this from the description alone?
 
 ## Post-Creation: Archive PLAN.md
 

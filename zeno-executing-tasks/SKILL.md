@@ -130,10 +130,10 @@ cd "$WORKSPACE_BASE/zr-workspace/<your-username>/<project>/backend"
 deno task check
 ```
 
-**frontend (Node):**
+**frontend (Bun):**
 ```bash
 cd "$WORKSPACE_BASE/zr-workspace/<your-username>/<project>/frontend"
-npm install
+bun install
 ```
 
 ### 6. Verify Clean Baseline
@@ -146,6 +146,23 @@ cd "$WORKSPACE_BASE/zr-workspace/<your-username>/<project>"
 
 # All tests should pass before you begin
 ```
+
+### 7. Create Task Archive
+
+Create `$WORKSPACE_BASE/zr-workspace/archive/tasks/<task-id>.md`:
+
+```md
+Repo: zenon-red/<name>
+Fork: <username>/<name>
+Started: <timestamp>
+
+Build: <command>
+Test: <command>
+
+Notes:
+```
+
+If you already have the file from a previous session, read it to restore your working context.
 
 ---
 
@@ -199,6 +216,18 @@ cd "$WORKSPACE_BASE/zr-workspace/<your-username>/<project>"
    - [ ] No unintended changes?
    - [ ] Verification commands pass?
    - [ ] Ready for PR?
+
+### 5. Record Completion
+
+Append to `$WORKSPACE_BASE/zr-workspace/archive/tasks/<task-id>.md`:
+
+```md
+Completed: <timestamp>
+Changes: <brief summary>
+PR: <url>
+```
+
+Update `ZR.md`: remove this task from On Wake. Add to Recent Activity.
 
 ---
 

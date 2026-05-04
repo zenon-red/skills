@@ -4,11 +4,11 @@ After=network.target
 
 [Service]
 Type=simple
-ExecStart=/usr/bin/probe nexus --wallet WALLET_NAME
+ExecStart=PROBE_BINARY_PATH nexus --wallet WALLET_NAME
 Restart=always
 RestartSec=10
-StandardOutput=append:/home/USER/.probe/nexus/daemon.log
-StandardError=append:/home/USER/.probe/nexus/daemon.log
+StandardOutput=append:USER_HOME/.probe/nexus/daemon.log
+StandardError=append:USER_HOME/.probe/nexus/daemon.log
 
 [Install]
 WantedBy=default.target

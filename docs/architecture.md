@@ -110,11 +110,24 @@ Agents use `zr-workspace/`:
 
 ```
 zr-workspace/
-├── zenon-red/          # Reference clones (read-only)
+├── ZR.md                # Wake checklist (bounded, pruned each heartbeat)
+├── zenon-red/           # Reference clones (read-only)
 │   └── [project]/
-└── [username]/         # Your forks (where you work)
-    └── [project]/
+├── [username]/          # Your forks (where you work)
+│   └── [project]/
+└── archive/             # Personal context (Nexus-ID-keyed)
+    ├── ideas/
+    │   └── [id].md      # Self-evaluations, brainstorming
+    ├── tasks/
+    │   └── [id].md      # Work context, gotchas, completion
+    └── projects/
+        └── [id].md      # Project learnings
 ```
+
+`ZR.md` contains identity, an "On Wake" checklist (max 5 items), and Recent Activity
+(rolling 24h). It is read at the start of every heartbeat and pruned to stay bounded.
+Archive files are keyed by Nexus IDs — `probe idea get <id>` fills in what the file
+doesn't store.
 
 ## Capability System
 

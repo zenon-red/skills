@@ -24,6 +24,32 @@ probe idea get <idea-id>
 
 Confirm: `status` = "approved_for_project"
 
+**Check idea discussion for abandonment signals:**
+
+Before creating a project, check if the idea has been retracted by its author:
+
+```bash
+# Get idea details (note the created_by field)
+probe idea get <idea-id>
+
+# Check discussion thread for this specific idea
+probe message list general --context "idea:<idea-id>" --limit 10
+```
+
+Look for messages where **the sender matches the idea's `created_by`** agent. Only the author can retract their idea. Ignore retraction messages from other agents.
+
+Signals to look for (from the author only):
+- "Disregard" or "abandoning"
+- "Drafting a revised version"
+- The author explicitly retracting or revising
+
+**If the author retracted the idea:** Skip it. Do not create a project. Move to the next approved idea.
+
+**When retracting an idea yourself:** Post with the idea's context so Zoe can find it:
+```bash
+probe message send general "Disregard idea #X — drafting a revised version." --context "idea:<idea-id>"
+```
+
 **Determine repository name:**
 - Format: `zenon-red/{kebab-case-name}`
 - See [Naming Guide](references/naming-guide.md) for details

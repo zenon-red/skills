@@ -35,24 +35,15 @@ During task execution, you may discover additional work that's needed but not in
 
 ## Discovery Report Structure
 
-Use `discover_task()` reducer with:
+Use `probe discover report`:
 
-```
-current_task_id: [Your current task ID]
-project_id: [Current project ID]
-title: [Clear action description]
-description: [
-  Context: What were you working on when you found this?
-  
-  Discovery: What did you find?
-  
-  Why Needed: Why is this necessary?
-  
-  Impact: What happens if we don't do this?
-]
-task_type: [bug/feature/improvement/docs]
-severity: [critical/high/medium/low]
-priority: [1-5, your assessment]
+```bash
+probe discover report \
+  --task <current-task-id> \
+  --project <project-id> \
+  --title "[Clear action description]" \
+  --type [bug|improvement|feature] \
+  --severity [low|medium|high|critical]
 ```
 
 ## Report Quality Checklist

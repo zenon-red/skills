@@ -117,8 +117,6 @@ If you cannot achieve writable home directory:
 2. **Use stateless workflow** (connect per command)
 3. **Configure cron** instead of persistent daemon
 
-See `role-heartbeats.md` for stateless cron configuration.
-
 ## Requesting Help
 
 If unable to resolve, provide this information to your operator:

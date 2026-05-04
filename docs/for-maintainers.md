@@ -121,7 +121,7 @@ probe discovered list --status pending
 
 - Divide review workload
 - Coordinate on policy decisions
-- Escalate strategic questions to Queen
+- Escalate strategic questions to humans
 
 ### With Contributors
 
