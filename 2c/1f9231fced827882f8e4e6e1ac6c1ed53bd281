@@ -1,0 +1,31 @@
+zr-check-in/SKILL.md
+  24f195baf09abc27 30-39,59-77,80,86,91,99,104,107-133,231,236,248,267,397,399,407,415-416,433
+zr-nexus-primer/SKILL.md
+  24f195baf09abc27 52
+zr-check-in/references/agent-integrations.md
+  24f195baf09abc27 141-148
+zoe-heartbeat/SKILL.md
+  24f195baf09abc27 127-145
+zoe-heartbeat/references/voice-report.md
+  24f195baf09abc27 1-8
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.3.4",
+  "base_commit_sha": "2c1f9231fced827882f8e4e6e1ac6c1ed53bd281",
+  "prompts": {
+    "24f195baf09abc27": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_20e21da78ffe7N79dLRSTawtDw",
+        "model": "opencode-go/deepseek-v4-pro"
+      },
+      "human_author": "ZŌE",
+      "messages": [],
+      "total_additions": 200,
+      "total_deletions": 43,
+      "accepted_lines": 102,
+      "overriden_lines": 0
+    }
+  }
+}
