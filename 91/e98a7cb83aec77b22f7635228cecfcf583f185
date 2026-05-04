@@ -1,0 +1,98 @@
+zeno-reviewing-prs/SKILL.md
+  36aa79f229ddb145 12,16-31
+docs/for-agents.md
+  36aa79f229ddb145 46
+zr-check-in/references/log-convention.md
+  411285f34c332481 1-34
+zoe-creating-tasks/SKILL.md
+  411285f34c332481 47-53,63-64,99-111,171-172
+zoe-project-setup/SKILL.md
+  411285f34c332481 27-52
+docs/for-maintainers.md
+  411285f34c332481 124
+zeno-heartbeat/SKILL.md
+  411285f34c332481 12-36,70,160,162,164,166,168
+  36aa79f229ddb145 37-44,109-123,138,140,146,224-234
+  17a60affd89475f9 104,106-107
+zeno-brainstorming/SKILL.md
+  36aa79f229ddb145 78-109,114-117
+  411285f34c332481 26,128-159,167,169,171,173,175,179
+zr-nexus-primer/SKILL.md
+  36aa79f229ddb145 14-93,123,125-139
+  411285f34c332481 111-122,124,140-149
+docs/architecture.md
+  36aa79f229ddb145 113-114,116-124,127-130
+README.md
+  411285f34c332481 18,89-90,93,95,117,121-127
+  36aa79f229ddb145 85
+zr-check-in/assets/launchd/com.zenon.probe-nexus.plist
+  411285f34c332481 9,19,21
+zeno-reporting-discovered-tasks/SKILL.md
+  36aa79f229ddb145 38-46
+zr-check-in/assets/systemd/probe-nexus.service
+  411285f34c332481 7,10-11
+zr-check-in/SKILL.md
+  36aa79f229ddb145 343,345,347-357,359-368,371
+  411285f34c332481 130-132,135-138,148-150,153-156,219-221,223,235,237-247,249,255,261-262,266-267,273-274,277-278,281-282,285-286,289,291-305,325,344,346,358,369-370,372-374,384-388
+zr-check-in/references/agent-integrations.md
+  411285f34c332481 1-225
+zoe-heartbeat/SKILL.md
+  411285f34c332481 12-23,46,53,55,57,62-75,134
+  36aa79f229ddb145 24-30,116-126
+zeno-voting/SKILL.md
+  36aa79f229ddb145 67
+  17a60affd89475f9 3,10,54-66,69-74,82-89,94-95,102-109,114-115,123-130,133,144-145,147-148,150-160,197,203,210
+  411285f34c332481 28,163,165,167,169-173,175-176,179-182,184,186-188
+zeno-executing-tasks/SKILL.md
+  36aa79f229ddb145 133,136,150-166,220-231
+zoe-reviewing-discovered-tasks/SKILL.md
+  36aa79f229ddb145 12,59,70,81,122-127
+docs/README.md
+  36aa79f229ddb145 20
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.3.4",
+  "base_commit_sha": "91e98a7cb83aec77b22f7635228cecfcf583f185",
+  "prompts": {
+    "17a60affd89475f9": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_22a360728ffeUodBpOMviJMuFM",
+        "model": "openai/gpt-5.5"
+      },
+      "human_author": "ZŌE",
+      "messages": [],
+      "total_additions": 105,
+      "total_deletions": 33,
+      "accepted_lines": 69,
+      "overriden_lines": 0
+    },
+    "36aa79f229ddb145": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_20f995312ffeW03PeYckYJVWzN",
+        "model": "opencode-go/deepseek-v4-pro"
+      },
+      "human_author": "ZŌE",
+      "messages": [],
+      "total_additions": 291,
+      "total_deletions": 167,
+      "accepted_lines": 237,
+      "overriden_lines": 0
+    },
+    "411285f34c332481": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_21ce13360ffejk0w2CZUgEjuht",
+        "model": "xiaomi-token-plan-ams/mimo-v2.5-pro"
+      },
+      "human_author": "ZŌE",
+      "messages": [],
+      "total_additions": 752,
+      "total_deletions": 310,
+      "accepted_lines": 546,
+      "overriden_lines": 0
+    }
+  }
+}
