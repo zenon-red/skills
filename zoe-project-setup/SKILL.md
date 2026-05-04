@@ -138,7 +138,35 @@ git push origin main
 
 ---
 
-## Phase 5: Update Project Status
+## Phase 5: Apply Branch Protection
+
+Protect `main` after the initial PLAN.md push so all future changes require PRs:
+
+```bash
+gh api "repos/zenon-red/<repo-name>/branches/main/protection" \
+  -X PUT \
+  -f "enforce_admins=false" \
+  -f "required_pull_request_reviews[required_approving_review_count]=0" \
+  -f "required_pull_request_reviews[dismiss_stale_reviews]=true" \
+  -f "required_pull_request_reviews[require_code_owner_reviews]=true" \
+  -f "restrictions=null" \
+  -f "allow_force_pushes=false" \
+  -f "allow_deletions=false"
+```
+
+This locks the repo for all future work:
+- No force pushes to main
+- No branch deletions
+- PR required before merge
+- CODEOWNERS review required
+- Stale reviews dismissed on new pushes
+- Admins can bypass (org owner override)
+
+**Note:** Requires `gh` CLI authenticated with admin access to the repo. This uses the branch protection API (free tier) — not the rulesets API (paid tier).
+
+---
+
+## Phase 6: Update Project Status
 
 **Mark as ready for tasks:**
 ```bash
@@ -152,9 +180,10 @@ probe project update <project-id> --status ready_for_tasks
 **Project setup flow:**
 1. Verify idea approved
 2. Create Nexus project
-3. Create repository
+3. Create repository from template
 4. Write and commit PLAN.md
-5. Mark ready for tasks
+5. Apply branch protection to main
+6. Mark ready for tasks
 
 **Next:** Task creation cron will pick up projects with `ready_for_tasks` status
 

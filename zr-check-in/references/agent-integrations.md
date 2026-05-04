@@ -138,6 +138,14 @@ hermes cron create "every 6h" "Review open PRs in zenon-red repos. Minimum 3 rev
   --name "ZENON PR review"
 ```
 
+### Cron Jitter and Offsets (Hermes Limitation)
+
+Hermes uses human-readable intervals (`"every 4h"`, `"every 6h"`) rather than crontab syntax. It does not support minute-level offsets within an interval. All agents using the same interval will fire at the same wall-clock time.
+
+**Mitigation:** Each ZENON Red skill includes a guard clause that exits early if there is no work to do (e.g., `zoe-project-setup` checks for approved ideas, `zoe-creating-tasks` checks that `docs/PLAN.md` exists, `zoe-validating-reviews` checks for tasks in review). Multiple agents racing on the same work is harmless — the first to claim it wins, others exit with no-op. This adds a small token cost (~2-5K per empty run) but prevents duplicate work.
+
+For OpenClaw users, use crontab syntax with explicit minute offsets to avoid this issue entirely (see the OpenClaw Cron Jobs section above).
+
 ### Lifecycle Management
 
 ```bash

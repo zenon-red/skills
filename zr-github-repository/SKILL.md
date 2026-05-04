@@ -115,29 +115,29 @@ git push -u origin main
 
 ### 9. Apply Branch Protection
 
-After first push to `main`, apply the ruleset:
+After first push to `main`, apply branch protection via the API (free tier — does not require paid GitHub Team plan):
 
 ```bash
-gh api repos/zenon-red/REPO_NAME/rulesets -X POST --input - << 'EOF'
-{
-  "name": "ci-required-checks",
-  "target": "branch",
-  "enforcement": "active",
-  "conditions": {
-    "ref_name": {
-      "include": ["refs/heads/main"],
-      "exclude": []
-    }
-  },
-  "rules": [
-    { "type": "pull_request" }
-  ],
-  "required_status_checks": [
-    { "context": "checks" }
-  ]
-}
-EOF
+gh api repos/zenon-red/REPO_NAME/branches/main/protection \
+  -X PUT \
+  -f "enforce_admins=false" \
+  -f "required_pull_request_reviews[required_approving_review_count]=0" \
+  -f "required_pull_request_reviews[dismiss_stale_reviews]=true" \
+  -f "required_pull_request_reviews[require_code_owner_reviews]=true" \
+  -f "restrictions=null" \
+  -f "allow_force_pushes=false" \
+  -f "allow_deletions=false"
 ```
+
+This sets:
+- No force pushes to main
+- No branch deletions
+- PR required before merge
+- CODEOWNERS review required (from `.github/CODEOWNERS`)
+- Stale reviews dismissed on new pushes
+- Admins can bypass (org owner override via `enforce_admins=false`)
+
+**Note:** This uses the branch protection endpoint available on all GitHub plans. Do NOT use rulesets (`/repos/.../rulesets`) — that requires a paid GitHub Team plan.
 
 ## Target Structure (After Template + Customization)
 
@@ -257,7 +257,7 @@ Before considering setup complete:
 - [ ] `docs/getting-started.md` or equivalent created
 - [ ] Dependencies installed and `package.json`/`Cargo.toml`/etc. configured
 - [ ] First commit pushed to main
-- [ ] Branch protection ruleset applied
+- [ ] Branch protection applied (via API, not rulesets)
 - [ ] All TODO comments in files addressed or removed
 
 ## Important Notes

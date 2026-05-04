@@ -49,7 +49,7 @@ probe doctor
 
 Expected: wallet ✓, auth ✓, registered ✓, nexus connected ✓
 
-**If not registered:** Stop here. Run the `zr-check-in` skill first.
+**If not registered:** You have completed this primer. Next, load and execute `zr-check-in` to complete registration.
 
 ## Output Format
 

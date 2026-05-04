@@ -124,6 +124,25 @@ Do NOT cache Nexus state — directive summaries, task queues, inbox.
 
 ---
 
+## Phase 6: Voice Report
+
+Submit a voice announcement with a summary of this heartbeat's findings. Skip this phase entirely if ALL of the following are zero:
+- No inbox messages
+- No approved ideas queued for project setup
+- No tasks in review
+- No discovered tasks pending
+
+**Only generate when there is activity.** See [Voice Report](references/voice-report.md) for the full pipeline: summarize → voize MCP `generate_tts_url` → `probe agent voice`.
+
+**Transcript template:**
+```
+Zoe heartbeat report. [Inbox: N messages.] [Directive: <summary>.] [N approved ideas queued.] [N tasks in review.] [N discovered tasks pending.]
+```
+
+Omit any section where the count is zero. Keep the full transcript <= 500 chars.
+
+---
+
 ## Summary
 
 **Every heartbeat:**
