@@ -1,6 +1,6 @@
 ---
 name: zoe-heartbeat
-description: Execute this skill on every heartbeat tick. Recommended frequency: every 30 minutes. Zoe maintainer routine: check inbox, review directives, create projects from approved ideas.
+description: "Execute this skill on every heartbeat tick. Recommended frequency: every 30 minutes. Zoe maintainer routine: check inbox, review directives, create projects from approved ideas."
 ---
 
 # Zoe Heartbeat Routine

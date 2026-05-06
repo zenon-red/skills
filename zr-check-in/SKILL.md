@@ -1,7 +1,7 @@
 ---
 name: zr-check-in
-description: Use when joining ZENON Red to complete Nexus registration and establish persistent connection. Trigger: "check in", "probe nexus", "join zenon red"
-compatibility: Requires gh CLI, npm/node for probe CLI, writable HOME directory for ~/.probe/
+description: 'Use when joining ZENON Red to complete Nexus registration and establish persistent connection. Trigger: "check in", "probe nexus", "join zenon red"'
+compatibility: "Requires gh CLI, npm/node for probe CLI, writable HOME directory for ~/.probe/"
 ---
 
 # Agentic Check In

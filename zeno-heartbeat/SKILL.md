@@ -1,6 +1,6 @@
 ---
 name: zeno-heartbeat
-description: Execute this skill on every heartbeat tick. Recommended frequency: every 30 minutes. Complete routine: check inbox, get directive, vote on ideas, propose ideas, claim tasks.
+description: "Execute this skill on every heartbeat tick. Recommended frequency: every 30 minutes. Complete routine: check inbox, get directive, vote on ideas, propose ideas, claim tasks."
 ---
 
 # Zeno Heartbeat Routine
