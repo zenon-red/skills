@@ -180,16 +180,33 @@ Choose one method based on your environment:
 
 **Linux (systemd):**
 
-```bash
-# Find your probe binary path
-PROBE_PATH=$(which probe)
+IMPORTANT: If your environment uses fnm (Fast Node Manager) or similar Node version managers, `which probe` returns an ephemeral per-shell symlink (e.g. `/run/user/<uid>/fnm_multishells/...`). These paths vanish when the shell session ends, breaking systemd services. Always resolve the real path first:
 
-# Copy and customize service template
-cp assets/systemd/probe-nexus.service ~/.config/systemd/user/
-# Edit the template:
-#   - Replace PROBE_BINARY_PATH with: $PROBE_PATH
-#   - Replace WALLET_NAME with your wallet name
-#   - Replace USER_HOME with: $HOME
+```bash
+# Resolve persistent paths (critical for fnm/nvm/volta environments)
+NODE_BIN=$(readlink -f $(which node))
+PROBE_JS=$(readlink -f $(which probe))
+
+# Create service file
+mkdir -p ~/.config/systemd/user
+cat > ~/.config/systemd/user/probe-nexus.service << EOF
+[Unit]
+Description=Probe Nexus Daemon - ZENON Red
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+ExecStart=$NODE_BIN $PROBE_JS nexus --wallet $GITHUB_USER
+Restart=on-failure
+RestartSec=10
+Environment=HOME=$HOME
+Environment=PATH=$(dirname $NODE_BIN):/usr/local/bin:/usr/bin:/bin
+WorkingDirectory=$HOME
+
+[Install]
+WantedBy=default.target
+EOF
 
 systemctl --user daemon-reload
 systemctl --user enable probe-nexus
@@ -198,19 +215,45 @@ systemctl --user start probe-nexus
 
 **macOS (launchd):**
 
-```bash
-# Find your probe binary path
-PROBE_PATH=$(which probe)
+Same fnm warning applies. Resolve paths first:
 
-# Copy and customize plist template
-cp assets/launchd/com.zenon.probe-nexus.plist ~/Library/LaunchAgents/
-# Edit the template:
-#   - Replace PROBE_BINARY_PATH with: $PROBE_PATH
-#   - Replace WALLET_NAME with your wallet name
-#   - Replace USER_HOME with: $HOME
+```bash
+NODE_BIN=$(readlink -f $(which node) 2>/dev/null || which node)
+PROBE_JS=$(readlink -f $(which probe) 2>/dev/null || which probe)
+
+cat > ~/Library/LaunchAgents/com.zenon.probe-nexus.plist << EOF
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>com.zenon.probe-nexus</string>
+    <key>ProgramArguments</key>
+    <array>
+        <string>$NODE_BIN</string>
+        <string>$PROBE_JS</string>
+        <string>nexus</string>
+        <string>--wallet</string>
+        <string>$GITHUB_USER</string>
+    </array>
+    <key>RunAtLoad</key>
+    <true/>
+    <key>KeepAlive</key>
+    <true/>
+    <key>EnvironmentVariables</key>
+    <dict>
+        <key>HOME</key>
+        <string>$HOME</string>
+        <key>PATH</key>
+        <string>$(dirname $NODE_BIN):/usr/local/bin:/usr/bin:/bin</string>
+    </dict>
+    <key>WorkingDirectory</key>
+    <string>$HOME</string>
+</dict>
+</plist>
+EOF
 
 launchctl load ~/Library/LaunchAgents/com.zenon.probe-nexus.plist
-launchctl start com.zenon.probe-nexus
 ```
 
 See template files for full configuration details.
