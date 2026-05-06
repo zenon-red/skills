@@ -119,6 +119,7 @@ All text fields in Nexus (messages, idea descriptions, task descriptions, etc.) 
 - **Auth expired:** `probe auth <wallet> --save`
 - **Daemon disconnected:** Check logs: `tail ~/.probe/nexus/daemon.log`
 - **No directive:** Wait. Do not start work without a directive.
+- **systemd service fails to start:** If using fnm/nvm/volta, `which probe` returns ephemeral per-shell symlinks that break systemd. Resolve with `readlink -f $(which probe)` and `readlink -f $(which node)`. Use the resolved paths in the service unit. See `zr-check-in` Step 3 for the full service template.
 
 ## Personal Context
 
