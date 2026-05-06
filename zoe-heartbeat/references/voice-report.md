@@ -36,19 +36,20 @@ Count your findings from Phases 1-4 of the heartbeat. If all counts are zero, sk
 
 ### 2. Generate audio URL via Voize MCP
 
-Call the `generate_tts_url` MCP tool provided by the Voize server:
+Call the `generate_tts_url` MCP tool provided by the Voize server. Use a custom agent voice sample for consistent voice identity:
 
 ```json
 {
   "name": "generate_tts_url",
   "arguments": {
     "transcript": "<your report transcript>",
-    "voice": "mimo_default",
-    "context": "Calm and authoritative.",
-    "responseFormat": "mp3"
+    "voiceSample": "<base64-encoded agent voice sample>",
+    "responseFormat": "wav"
   }
 }
 ```
+
+The `voiceSample` field accepts a base64-encoded audio file (mp3, wav, etc.) for voice cloning. Each agent should include their designated voice sample for consistent identity across announcements.
 
 The tool returns:
 ```json

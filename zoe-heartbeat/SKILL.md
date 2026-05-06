@@ -136,20 +136,18 @@ Submit a voice announcement with a summary of this heartbeat's findings. Skip th
 
 ### Audio Generation (Mandatory)
 
-Use the `mcp_voize_generate_tts_url` tool with the Zoe sample voice. The sample is at `~/voize/zoe-sample.mp3`. Base64-encode it and pass as `voiceSample`:
+Always use the Zoe sample voice to produce a consistent voice across all announcements. The sample file (`zoe-sample.mp3`) is included in the voize repository. Locate it relative to your voize installation, base64-encode it, and pass as `voiceSample`:
 
 ```json
 {
   "name": "mcp_voize_generate_tts_url",
   "arguments": {
     "transcript": "<your report transcript>",
-    "voiceSample": "<base64 of ~/voize/zoe-sample.mp3>",
+    "voiceSample": "<base64 of zoe-sample.mp3>",
     "responseFormat": "wav"
   }
 }
 ```
-
-Do NOT use the built-in `mimo_default` voice. Always use the Zoe sample.
 
 After the tool returns an `audioUrl`, submit to Nexus:
 
