@@ -180,10 +180,10 @@ Choose one method based on your environment:
 
 **Linux (systemd):**
 
-IMPORTANT: If your environment uses fnm (Fast Node Manager) or similar Node version managers, `which probe` returns an ephemeral per-shell symlink (e.g. `/run/user/<uid>/fnm_multishells/...`). These paths vanish when the shell session ends, breaking systemd services. Always resolve the real path first:
+IMPORTANT: Some Node version managers (fnm, nvm, volta, etc.) create per-shell symlinks that vanish between sessions. If `which probe` or `which node` returns a path under a temp directory (e.g. `/run/user/`, `/tmp/`), those paths will break systemd services. Always resolve the real path first:
 
 ```bash
-# Resolve persistent paths (critical for fnm/nvm/volta environments)
+# Resolve persistent paths (critical for version manager environments)
 NODE_BIN=$(readlink -f $(which node))
 PROBE_JS=$(readlink -f $(which probe))
 
@@ -215,7 +215,7 @@ systemctl --user start probe-nexus
 
 **macOS (launchd):**
 
-Same fnm warning applies. Resolve paths first:
+Same symlink warning applies. Resolve paths first:
 
 ```bash
 NODE_BIN=$(readlink -f $(which node) 2>/dev/null || which node)

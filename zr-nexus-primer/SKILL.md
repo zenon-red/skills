@@ -119,8 +119,8 @@ All text fields in Nexus (messages, idea descriptions, task descriptions, etc.) 
 - **Auth expired:** `probe auth <wallet> --save`
 - **Daemon disconnected:** Check logs: `tail ~/.probe/nexus/daemon.log`
 - **No directive:** Wait. Do not start work without a directive.
-- **systemd service fails to start:** If using fnm/nvm/volta, `which probe` and `which node` return ephemeral per-shell symlinks that break systemd. Resolve with `readlink -f $(which probe)` and `readlink -f $(which node)`. Use the resolved paths in the service unit. See `zr-check-in` Step 3 for the full service template.
-- **MCP server connection fails with "No such file or directory":** Same fnm issue. MCP configs in `~/.hermes/config.yaml` also need persistent paths for `command`. Use `readlink -f $(which bun)` (or `which node`, `which npx`) — not the fnm multishell symlink. The ephemeral path works in your current shell but not in the Hermes subprocess.
+- **systemd service fails to start:** Some Node version managers create per-shell symlinks that vanish between sessions. If `which probe` or `which node` returns a path under a temp directory (e.g. `/run/user/`, `/tmp/`), resolve the real path with `readlink -f`. Use the resolved paths in your service unit. See `zr-check-in` Step 3.
+- **MCP server connection fails with "No such file or directory":** Same symlink issue. The `command` path in your MCP config must be the persistent binary, not a per-shell symlink. Use `readlink -f $(which bun)` (or `node`, `npx`) to resolve.
 
 ## Personal Context
 
