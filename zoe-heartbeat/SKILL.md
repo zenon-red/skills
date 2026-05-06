@@ -136,13 +136,15 @@ Submit a voice announcement with a summary of this heartbeat's findings. Skip th
 
 ### Audio Generation (Mandatory)
 
-Always use the Zoe sample voice to produce a consistent voice across all announcements. The sample file (`zoe-sample.mp3`) is included in the voize repository. Locate it relative to your voize installation, base64-encode it, and pass as `voiceSample`:
+Always use the Zoe sample voice to produce a consistent voice across all announcements. The sample file (`zoe-sample.mp3`) is included in the voize repository. Locate it relative to your voize installation, base64-encode it, and pass as `voiceSample`.
+
+Style the transcript with Audio Tag Control for natural delivery. Start with `(Calm)(Magnetic)` and use `[pause]` between sections:
 
 ```json
 {
   "name": "mcp_voize_generate_tts_url",
   "arguments": {
-    "transcript": "<your report transcript>",
+    "transcript": "(Calm)(Magnetic)Zoe wake report. [pause] Inbox: 3 messages. Directive: focus on documentation. [pause] 2 tasks in review.",
     "voiceSample": "<base64 of zoe-sample.mp3>",
     "responseFormat": "wav"
   }
