@@ -1,0 +1,43 @@
+voize/SKILL.md
+  s_162cd93a728b28::t_4b22c195058c92 1-86
+probe/references/commands.md
+  s_162cd93a728b28::t_4b22c195058c92 1-221
+package.json
+  s_162cd93a728b28::t_d7903cc30178b9 3
+probe/references/sql.md
+  s_162cd93a728b28::t_4b22c195058c92 1-322
+docs/add-skill.md
+  s_162cd93a728b28::t_2f60b3c44d789f 45-59
+probe/META.md
+  s_162cd93a728b28::t_4b22c195058c92 1-7
+meta.json
+  s_162cd93a728b28::t_3f7796bb85c05f 62-71
+README.md
+  s_162cd93a728b28::t_e15a16afe9fc1e 40-47,49,62
+  s_162cd93a728b28::t_ed6ca88aee4a39 129-142,144,148
+probe/SKILL.md
+  s_162cd93a728b28::t_4b22c195058c92 1-159
+docs/skills-manager.md
+  s_162cd93a728b28::t_8845a755ca8c18 112-124
+  s_162cd93a728b28::t_4461745fcc2f1c 42,44-50
+probe/references/troubleshooting.md
+  s_162cd93a728b28::t_4b22c195058c92 1-133
+voize/META.md
+  s_162cd93a728b28::t_4b22c195058c92 1-7
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.4.1",
+  "base_commit_sha": "b8342cce20eb918955ff24ad47a3be869faa47b5",
+  "prompts": {},
+  "sessions": {
+    "s_162cd93a728b28": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_1fd20e47affeUQ6x8GXnkjCLJa",
+        "model": "deepseek-v4-pro"
+      },
+      "human_author": "ZŌE <zoe@zenon.red>"
+    }
+  }
+}
