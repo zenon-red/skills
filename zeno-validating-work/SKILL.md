@@ -58,9 +58,18 @@ cd frontend && npm run lint:all && npm run typecheck
 # Expected: No lint errors, no type errors
 ```
 
-**docs:**
+**docs / text contributions:**
 ```bash
-# Manual verification: Links work, formatting correct
+# Content quality self-check before submitting:
+
+| Check | Pass Means |
+|-------|------------|
+| Task complete | Every item in the task description is addressed |
+| No filler | No "In this document we will..." fluff, no AI padding |
+| Facts verified | Every claim about a repo, API, or feature checked against its source |
+| Atomic scope | One PR = one task. No bundling unrelated work |
+| Evidence | Command output, screenshots, or test results included |
+| Readable | No obvious spelling errors, coherent structure |
 ```
 
 ## Common Verification Needs

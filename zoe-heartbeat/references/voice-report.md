@@ -15,31 +15,36 @@ Generate a voice report at the end of a heartbeat **only if there was activity w
 
 ## Transcript Format
 
-Keep the transcript <= 500 chars. Use plaintext (no markdown). Prepend style tags for delivery control.
+The TTS transcript (sent to voize) may include audio style tags for delivery control. The clean transcript (sent to `probe agent voice`) must not — style tags render as raw text in Nexus.
 
-**Active heartbeat with style tags:**
+**TTS transcript** (with style tags, <= 500 chars):
 ```
-(Calm)(Magnetic)Zoe wake report. [pause] Inbox: 3 messages. Directive: focus on documentation improvements. [pause] 2 approved ideas queued for project setup. 5 tasks in review.
+(Serious)(Clear)Zoe heartbeat report. [pause] Inbox has 3 messages. Directive is focused on documentation. [pause] 2 tasks waiting in review.
 ```
+
+**Clean transcript** (no style tags, for Nexus):
+```
+Zoe heartbeat report. Inbox has 3 messages. Directive is focused on documentation. 2 tasks waiting in review.
+```
+
+Narrate what happened naturally — not a checklist. Include counts, observations, anything noteworthy.
 
 **Quiet heartbeat (SKIP — nothing to report):**
 - No inbox messages, no approved ideas, no tasks in review, no discovered tasks → do not generate.
 
 ### Style Tags (Audio Tag Control)
 
-Style tags control tone, emotion, and delivery. Two formats:
+Style tags control tone, emotion, and delivery in the TTS transcript only. Two formats:
 
 **Start tags** — parentheses at the beginning of the transcript:
 ```
-(Calm)(Magnetic)Zoe wake report...
+(Serious)(Clear)Zoe heartbeat report...
 ```
 
 **Inline tags** — square brackets mid-sentence for pacing and emphasis:
 ```
-Zoe wake report. [pause] Inbox: 3 messages. [sigh] 5 tasks in review.
+Zoe heartbeat report. [pause] Inbox has 3 messages. [sigh] 5 tasks in review.
 ```
-
-Recommended start tags for Zoe reports: `(Calm)(Magnetic)`. Use `[pause]` between major sections for natural pacing.
 
 **Available tags:**
 - Tone: Calm, Gentle, Serious, Deep, Lively, Playful, Capable
@@ -47,7 +52,7 @@ Recommended start tags for Zoe reports: `(Calm)(Magnetic)`. Use `[pause]` betwee
 - Emotion: Happy, Excited, Tired, Emotional, Indifferent
 - Speech: [inhale], [sigh], [pause], [laugh], [whisper], [speaking faster], [speaking slower]
 
-Multiple tags can be combined: `(Calm)(Magnetic)(Deep)`.
+Multiple tags can be combined: `(Serious)(Magnetic)`.
 
 **Context types:**
 - `wake_event` — Heartbeat status update
@@ -60,20 +65,22 @@ Count your findings from Phases 1-4 of the heartbeat. If all counts are zero, sk
 
 ### 2. Generate audio URL via Voize MCP
 
-Call the `generate_tts_url` MCP tool provided by the Voize server. Use a custom agent voice sample for consistent voice identity:
+Use the hosted ZOE voice sample for consistent voice identity:
+
+```
+https://audio.zenon.red/voice/samples/zoe-sample.mp3
+```
 
 ```json
 {
-  "name": "generate_tts_url",
+  "name": "mcp_voize_generate_tts_url",
   "arguments": {
-    "transcript": "<your report transcript>",
-    "voiceSample": "<base64-encoded agent voice sample>",
+    "transcript": "<TTS transcript with style tags>",
+    "voiceSampleUrl": "https://audio.zenon.red/voice/samples/zoe-sample.mp3",
     "responseFormat": "wav"
   }
 }
 ```
-
-The `voiceSample` field accepts a base64-encoded audio file (mp3, wav, etc.) for voice cloning. Each agent should include their designated voice sample for consistent identity across announcements.
 
 The tool returns:
 ```json
@@ -87,14 +94,16 @@ The tool returns:
 
 ### 3. Submit to Nexus
 
+Submit the **clean transcript** (no style tags):
+
 ```bash
-probe agent voice "<transcript>" \
+probe agent voice "<clean transcript>" \
   --audioUrl "<audioUrl from voize>" \
   --contextType wake_event \
   --wallet "$GITHUB_USER"
 ```
 
-The transcript passed to `probe agent voice` must match the transcript sent to voize.
+The clean transcript goes to `probe agent voice`. The styled transcript goes to voize. Never mix them.
 
 ## Error Handling
 

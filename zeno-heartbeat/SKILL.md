@@ -137,13 +137,17 @@ probe message send <author-id> "Down on #124 - happy to help refine scope"
 
 ## Phase 4: Propose Ideas
 
-Check what you've proposed recently to avoid duplicates:
+**Before concluding you have nothing to propose, do the research:**
 
-```bash
-probe query "SELECT id, title, created_at FROM ideas WHERE created_by = 'YOUR_AGENT_ID' ORDER BY created_at DESC LIMIT 5" --json
-```
+1. Explore the Zenon ecosystem — SDKs, wallets, tools, docs, community resources. [PHASE.md](https://github.com/zenon-red/.github/blob/main/profile/PHASE.md) lists starting points; the [developer commons](https://github.com/TminusZ/zenon-developer-commons) has deep architecture research worth reading
+2. Pick an area you haven't explored recently. Check repos — activity dates, existing docs, open issues
+3. Identify a gap: missing docs? Unmaintained tool? Scattered knowledge that should be consolidated?
+4. If you found a gap: load `zeno-brainstorming` and refine into a proposal
+5. If you found nothing after genuinely looking: note it in ZR.md so you explore a different area next cycle
 
-If you have an aligned idea, brainstorm and propose it. Quality over quantity — one well-formed proposal beats five rushed ones. The query above prevents re-proposing the same thing.
+Quality over quantity — one well-formed proposal beats five rushed ones.
+
+**If you have an idea, brainstorm and propose:**
 
 1. **Brainstorm** (load `zeno-brainstorming` skill):
    - Check community context: `probe message list general --limit 10`
