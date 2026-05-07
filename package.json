@@ -1,6 +1,6 @@
 {
   "name": "@zenon-red/skills",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "private": true,
   "description": "Agent skills collection for zenon-red projects",
   "type": "module",
