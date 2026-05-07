@@ -1,0 +1,52 @@
+zr-check-in/SKILL.md
+  s_a625f428b36640::t_3efca65f49898c 139
+  s_a625f428b36640::t_8b7d0794e772a3 137,142,145
+  s_a625f428b36640::t_5d705f4affdbc4 171-173,175-182,186-194,208,216,218,221,227,238-241,248,255
+  s_a625f428b36640::t_37e48d3f145099 155
+  s_a625f428b36640::t_35f8329270846d 265,268-270,275,278-279,283,286-289,307,316
+  s_a625f428b36640::t_e4f74480cd60ad 147,149-154,156-157
+  s_a625f428b36640::t_5973bc72ba43be 159
+zeno-heartbeat/SKILL.md
+  s_a625f428b36640::t_85eaefe54b62ca 140,142-148,150
+zeno-validating-work/SKILL.md
+  s_a625f428b36640::t_3e127eeb883202 61,63-72
+zr-nexus-primer/SKILL.md
+  s_a625f428b36640::t_418eca92c7df7d 18-22,24-25,31
+  s_a625f428b36640::t_4fa909193f8fc8 43
+  s_a625f428b36640::t_3348ed2cb3d87b 168
+  s_a625f428b36640::t_6abe84d749ffbb 106-115
+  s_a625f428b36640::t_b3cf290ae4e4eb 16-17,23,26-30
+zoe-heartbeat/SKILL.md
+  s_a625f428b36640::t_248aabb263ae3b 181-192
+  s_a625f428b36640::t_ef02fea73481e5 35-39,53,55-58,60-62,65-71,86
+  s_a625f428b36640::t_ca12b5e6e9bb05 47-51,63-64
+  s_a625f428b36640::t_5653f73ecd353a 121-122,124,126,128,130-132,134-141,147-148,154,157
+  s_a625f428b36640::t_1d89a3d92340f2 160
+  s_a625f428b36640::t_6411f2f44a7852 82,85
+  s_a625f428b36640::t_76ac14ed34d08a 119
+  s_a625f428b36640::t_142a044e511190 74-79
+  s_a625f428b36640::t_d5ac0f67827965 3
+  s_a625f428b36640::t_62a91b929bbbb6 42,45
+  s_a625f428b36640::t_514e57937bdd83 168-169
+  s_a625f428b36640::t_93ed4f7847312d 108
+zoe-heartbeat/references/voice-report.md
+  s_a625f428b36640::t_fcc762470d97ce 18,20,22,25-31,37,41,46,55,68-72,76,78-79,97-98,100,106
+package.json
+  s_a625f428b36640::t_61a44eb32f45c3 3
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.4.1",
+  "base_commit_sha": "722b88868af1bc5b173f0e95095c88ea5a5a7aaf",
+  "prompts": {},
+  "sessions": {
+    "s_a625f428b36640": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_1fc36472affezXc0kKPr2IDFTf",
+        "model": "deepseek-v4-pro"
+      },
+      "human_author": "ZŌE <zoe@zenon.red>"
+    }
+  }
+}
