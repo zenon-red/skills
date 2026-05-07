@@ -1,0 +1,64 @@
+zr-check-in/SKILL.md
+  s_a48d20d4c4df5b::t_eec8d8fb5c48ec 38
+  s_a48d20d4c4df5b::t_fa539d0a6cc43a 32
+  s_a48d20d4c4df5b::t_a85b9b3cd202a9 271,273,275,278,285,290,294,297
+  s_a48d20d4c4df5b::t_b7a40709af3549 322
+  s_a48d20d4c4df5b::t_24ad3dda4bec68 239,241,243,254-255,262-263,265,267,269,277,279-280,293
+  s_a48d20d4c4df5b::t_61501ed34a6326 113
+  s_a48d20d4c4df5b::t_129edfcc0e89c9 324,332
+  s_a48d20d4c4df5b::t_fa6d0ea9f41f8f 35
+  s_a48d20d4c4df5b::t_6573d610134a29 117,127
+  s_a48d20d4c4df5b::t_a73b62ec176436 182
+  s_a48d20d4c4df5b::t_a0f38c2cfb495e 156
+  s_a48d20d4c4df5b::t_90ed09972ca449 139,142,145,147
+  s_a48d20d4c4df5b::t_193c2a89ddddb9 30
+  s_a48d20d4c4df5b::t_d022f07a990fb6 47-53,61
+  s_a48d20d4c4df5b::t_29a7e6717111bf 235
+  s_a48d20d4c4df5b::t_cfde1e498d4c48 120,122,327-329
+  s_a48d20d4c4df5b::t_f1fc8c3a810fb9 172,174
+  s_a48d20d4c4df5b::t_67f1c6d1f7de93 301
+  s_a48d20d4c4df5b::t_d0f64e0f6a3789 318
+  s_a48d20d4c4df5b::t_8dbe264a067889 245,248,253,256-257,261,264,266
+  s_a48d20d4c4df5b::t_2b9bb0c64effec 341
+zr-nexus-primer/SKILL.md
+  s_a48d20d4c4df5b::t_4d3cdf866c6c1f 108
+  s_a48d20d4c4df5b::t_c682a2fbc4321a 60
+  s_a48d20d4c4df5b::t_41edcbf288ef11 110-111,113-116,118,120-121,124-125
+  s_a48d20d4c4df5b::t_a5058f2c457ecb 34
+  s_a48d20d4c4df5b::t_7255e3833b233d 129
+  s_a48d20d4c4df5b::t_0cd0f66e98efa6 28
+  s_a48d20d4c4df5b::t_2ab061a4b13645 123
+  s_a48d20d4c4df5b::t_be3aa5e9e43dc9 80
+  s_a48d20d4c4df5b::t_5321a7d853b1b1 135
+  s_a48d20d4c4df5b::t_bc045bd08c0759 137,139-143
+  s_a48d20d4c4df5b::t_f2bb99a3e25f76 18-27,29-33
+  s_a48d20d4c4df5b::t_90fc116bd430b3 48,54,56
+  s_a48d20d4c4df5b::t_0e741c1427a768 104
+  s_a48d20d4c4df5b::t_09a3bc7acdbc73 93
+  s_a48d20d4c4df5b::t_8151f573404b77 40,42
+  s_a48d20d4c4df5b::t_d79c6cb25f2315 69
+  s_a48d20d4c4df5b::t_b47c979149bf9a 10,16
+  s_a48d20d4c4df5b::t_bf1288f2ac86e5 44
+  s_a48d20d4c4df5b::t_88d03fba8bdd56 8,11-12
+  s_a48d20d4c4df5b::t_e4e2f7cd718d8c 71,73-78
+zr-check-in/assets/launchd/com.zenon.probe-nexus.plist
+  s_a48d20d4c4df5b::t_2da699711006fc 9-10,13,19-27
+zr-check-in/assets/systemd/probe-nexus.service
+  s_a48d20d4c4df5b::t_d7e429a1ee0986 2-4,8-9,11-13
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.4.1",
+  "base_commit_sha": "16a88ed52c54214bd3dfe00c95bb3cf66802bba4",
+  "prompts": {},
+  "sessions": {
+    "s_a48d20d4c4df5b": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_1fdc86e57ffeRYYnRVk64oF5lc",
+        "model": "deepseek-v4-pro"
+      },
+      "human_author": "ZŌE <zoe@zenon.red>"
+    }
+  }
+}
