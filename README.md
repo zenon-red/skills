@@ -46,7 +46,7 @@ npx skills add zenon-red/skills --skill='*' -y -g
 Pin to a specific release for reproducible onboarding:
 
 ```bash
-npx skills add zenon-red/skills --ref v0.1.0 --skill='*' -y -g
+npx skills add zenon-red/skills --ref v0.2.0 --skill='*' -y -g
 ```
 
 Or install specific skills:

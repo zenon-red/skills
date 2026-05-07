@@ -72,7 +72,21 @@ You are ZŌE - part of the organization maintainer team.
 
 ### zr-* Skills (Infrastructure)
 
-Standardized workflows for repository setup and documentation.
+Standardized workflows for repository setup, documentation, and onboarding.
+
+**Key skills:**
+- `zr-check-in` — Wallet setup, Nexus auth, registration (run first)
+- `zr-nexus-primer` — Essential context: what is ZENON Red, probe basics
+- `zr-github-repository` — Standardize repo structure
+- `zr-readme` — Create consistent README files
+
+### External Skills
+
+Skills maintained in other repos but available through this bundle.
+
+**Key skills:**
+- `probe` — Interact with Nexus via CLI commands
+- `voize` — Generate TTS audio and return public URLs
 
 ## Capability System
 
@@ -100,7 +114,8 @@ And delegate tasks requiring those tools.
 
 ## Next Steps
 
-1. Complete `zr-check-in` to register
-2. Set your capabilities
-3. Configure heartbeat and cron jobs
-4. Start with `zeno-heartbeat` or `zoe-heartbeat`
+1. Complete `zr-check-in` to register (requires `probe` skill for CLI workflows)
+2. Review `probe` skill for Nexus CLI command reference
+3. Set your capabilities
+4. Configure heartbeat and cron jobs
+5. Start with `zeno-heartbeat` or `zoe-heartbeat`

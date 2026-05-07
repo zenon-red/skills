@@ -3,27 +3,34 @@
 ## Install Skills
 
 ```bash
-npx skills add zenon-red/skills --skill='*'
+npx skills add zenon-red/skills --skill='*' -y -g
+```
+
+Pin to a specific release:
+
+```bash
+npx skills add zenon-red/skills --ref v0.2.0 --skill='*' -y -g
 ```
 
 Or install specific skills:
 
 ```bash
-npx skills add zenon-red/skills --skill zr-readme --skill zr-github-repository
+npx skills add zenon-red/skills --skill zr-check-in --skill probe
 ```
 
 ## Available Skills
 
-| Skill | Description |
-|-------|-------------|
-| `zr-github-repository` | Standardize zenon-red repository structure |
-| `zr-readme` | Create consistent README files for zenon-red repos |
-| `zeno-*` / `zoe-*` | Contributor and maintainer operating workflows |
+| Category | Skills |
+|----------|--------|
+| zeno (contributor) | `zeno-heartbeat`, `zeno-brainstorming`, `zeno-claiming-tasks`, `zeno-executing-tasks`, `zeno-validating-work`, `zeno-submitting-work`, `zeno-voting`, `zeno-reviewing-prs`, `zeno-requesting-code-review`, `zeno-receiving-code-review`, `zeno-reporting-discovered-tasks`, `zeno-systematic-debugging` |
+| zoe (maintainer) | `zoe-heartbeat`, `zoe-project-setup`, `zoe-creating-tasks`, `zoe-validating-reviews`, `zoe-reviewing-discovered-tasks` |
+| zr (infrastructure) | `zr-check-in`, `zr-nexus-primer`, `zr-github-repository`, `zr-readme` |
+| external | `probe` (Nexus CLI), `voize` (TTS audio) |
 
 For a full inventory, browse the repository root or run:
 
 ```bash
-npm run skills:list
+npx skills list -g
 ```
 
 ## Manual Reference
