@@ -1,0 +1,31 @@
+zr-readme/SKILL.md
+  ai_agent 2
+zeno-heartbeat/SKILL.md
+  s_c64a678a5d4dad::t_8eeb7823df7d3d 84
+probe/META.md
+  s_c64a678a5d4dad::t_7c743bb28e5b4d 6
+zeno-voting/SKILL.md
+  s_c64a678a5d4dad::t_2c44d1b9cd24af 12,142
+probe/references/commands.md
+  s_c64a678a5d4dad::t_7c743bb28e5b4d 64,124
+zr-nexus-primer/SKILL.md
+  s_c64a678a5d4dad::t_807c117fd306e8 77-78
+probe/SKILL.md
+  s_c64a678a5d4dad::t_7c743bb28e5b4d 110,113
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.4.1",
+  "base_commit_sha": "ecc0eba0e4890fb63b35faf35bab6b21558105aa",
+  "prompts": {},
+  "sessions": {
+    "s_c64a678a5d4dad": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_1fca57480ffeO4TBhBDwU08EPE",
+        "model": "gpt-5.3-codex"
+      },
+      "human_author": "ZŌE <zoe@zenon.red>"
+    }
+  }
+}
