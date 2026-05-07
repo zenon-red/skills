@@ -59,6 +59,16 @@
     },
     "zr-readme": {
       "type": "manual"
+    },
+    "probe": {
+      "type": "external",
+      "repo": "https://github.com/zenon-red/probe",
+      "source": "skills/probe"
+    },
+    "voize": {
+      "type": "external",
+      "repo": "https://github.com/zenon-red/voize",
+      "source": "skills/voize"
     }
   }
 }

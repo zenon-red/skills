@@ -39,10 +39,15 @@ The CLI helps with:
     "zr-readme": {
       "type": "manual"
     },
-    "web-design-guidelines": {
+    "probe": {
       "type": "external",
-      "repo": "https://github.com/vercel-labs/agent-skills",
-      "source": "skills/web-design-guidelines"
+      "repo": "https://github.com/zenon-red/probe",
+      "source": "skills/probe"
+    },
+    "voize": {
+      "type": "external",
+      "repo": "https://github.com/zenon-red/voize",
+      "source": "skills/voize"
     }
   }
 }
@@ -104,3 +109,16 @@ npm run skills:init
 npm run skills:sync
 npm run typecheck
 ```
+
+### Syncing External Skills (probe / voize)
+
+When upstream skills change (e.g. a new `SKILL.md` revision in `zenon-red/probe` or `zenon-red/voize`):
+
+```bash
+npm run skills:check      # See which externals have updates
+npm run skills:sync       # Pull latest content into local dirs
+git add probe/ voize/     # Stage updated skill dirs + META.md
+git commit -m "chore: sync upstream skills"
+```
+
+Each synced skill directory includes a `META.md` with source repo, path, SHA, and sync date — this is the equivalent of a lock file for vendored external content.

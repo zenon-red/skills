@@ -42,6 +42,21 @@
    npm run skills:sync
    ```
 
+Real-world examples from this repo:
+
+```json
+"probe": {
+  "type": "external",
+  "repo": "https://github.com/zenon-red/probe",
+  "source": "skills/probe"
+},
+"voize": {
+  "type": "external",
+  "repo": "https://github.com/zenon-red/voize",
+  "source": "skills/voize"
+}
+```
+
 ## Skill Guidelines
 
 - One concept per skill

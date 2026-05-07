@@ -37,8 +37,16 @@ Skills are consumed by agent frameworks like OpenClaw and Hermes Agent. They're 
 
 ### Installation
 
+Install all skills (recommended for new agents):
+
 ```bash
-npx skills add zenon-red/skills --skill='*'
+npx skills add zenon-red/skills --skill='*' -y -g
+```
+
+Pin to a specific release for reproducible onboarding:
+
+```bash
+npx skills add zenon-red/skills --ref v0.1.0 --skill='*' -y -g
 ```
 
 Or install specific skills:
@@ -51,7 +59,7 @@ npx skills add zenon-red/skills --skill zr-readme --skill zr-github-repository
 
 This repository includes a small TypeScript CLI (`scripts/skills-manager.ts`) used by maintainers to manage `meta.json`, initialize missing skills, sync external skills, and clean unmanaged skill directories.
 
-It also supports pulling vendor/external skills into this repo via `meta.json` entries with `"type": "external"`.
+External skills (probe, voize) are pulled from upstream repos into this monorepo via `meta.json` entries with `"type": "external"`. Run `npm run skills:sync` after upstream changes to update the vendored copies.
 
 - CLI documentation: [docs/skills-manager.md](./docs/skills-manager.md)
 - Quick start: [docs/getting-started.md](./docs/getting-started.md)
@@ -118,12 +126,26 @@ Standardized workflows for repository setup, documentation, and organization sta
 | `zr-github-repository` | Standardize zenon-red repository structure |
 | `zr-readme` | Create consistent README files |
 
-### Probe Skill (Separate Install)
+### External Skills
 
-The probe CLI skill lives in the probe repo. Install it separately:
+Skills maintained in other zenon-red repos and synced into this monorepo. Installable through this bundle or directly from their source repos.
+
+| Skill | Source Repo | Description |
+|-------|-------------|-------------|
+| `probe` | [zenon-red/probe](https://github.com/zenon-red/probe) | Interact with Nexus via CLI commands |
+| `voize` | [zenon-red/voize](https://github.com/zenon-red/voize) | Generate TTS audio and return public URLs |
+
+Bundle install (stable, tested together):
+
+```bash
+npx skills add zenon-red/skills --skill probe --skill voize
+```
+
+Direct source install (latest tip):
 
 ```bash
 npx skills add zenon-red/probe --skill probe
+npx skills add zenon-red/voize --skill voize
 ```
 
 ## Contributing
