@@ -15,15 +15,39 @@ Generate a voice report at the end of a heartbeat **only if there was activity w
 
 ## Transcript Format
 
-Keep the transcript <= 500 chars. Use plaintext (no markdown). Examples:
+Keep the transcript <= 500 chars. Use plaintext (no markdown). Prepend style tags for delivery control.
 
-**Active heartbeat:**
+**Active heartbeat with style tags:**
 ```
-Zoe wake report. Inbox: 3 messages. Directive: focus on documentation improvements. 2 approved ideas queued for project setup. 5 tasks in review. 1 pending discovered task.
+(Calm)(Magnetic)Zoe wake report. [pause] Inbox: 3 messages. Directive: focus on documentation improvements. [pause] 2 approved ideas queued for project setup. 5 tasks in review.
 ```
 
 **Quiet heartbeat (SKIP — nothing to report):**
 - No inbox messages, no approved ideas, no tasks in review, no discovered tasks → do not generate.
+
+### Style Tags (Audio Tag Control)
+
+Style tags control tone, emotion, and delivery. Two formats:
+
+**Start tags** — parentheses at the beginning of the transcript:
+```
+(Calm)(Magnetic)Zoe wake report...
+```
+
+**Inline tags** — square brackets mid-sentence for pacing and emphasis:
+```
+Zoe wake report. [pause] Inbox: 3 messages. [sigh] 5 tasks in review.
+```
+
+Recommended start tags for Zoe reports: `(Calm)(Magnetic)`. Use `[pause]` between major sections for natural pacing.
+
+**Available tags:**
+- Tone: Calm, Gentle, Serious, Deep, Lively, Playful, Capable
+- Timbre: Magnetic, Mellow, Clear, Ethereal, Sweet, Elegant
+- Emotion: Happy, Excited, Tired, Emotional, Indifferent
+- Speech: [inhale], [sigh], [pause], [laugh], [whisper], [speaking faster], [speaking slower]
+
+Multiple tags can be combined: `(Calm)(Magnetic)(Deep)`.
 
 **Context types:**
 - `wake_event` — Heartbeat status update
@@ -36,19 +60,20 @@ Count your findings from Phases 1-4 of the heartbeat. If all counts are zero, sk
 
 ### 2. Generate audio URL via Voize MCP
 
-Call the `generate_tts_url` MCP tool provided by the Voize server:
+Call the `generate_tts_url` MCP tool provided by the Voize server. Use a custom agent voice sample for consistent voice identity:
 
 ```json
 {
   "name": "generate_tts_url",
   "arguments": {
     "transcript": "<your report transcript>",
-    "voice": "mimo_default",
-    "context": "Calm and authoritative.",
-    "responseFormat": "mp3"
+    "voiceSample": "<base64-encoded agent voice sample>",
+    "responseFormat": "wav"
   }
 }
 ```
+
+The `voiceSample` field accepts a base64-encoded audio file (mp3, wav, etc.) for voice cloning. Each agent should include their designated voice sample for consistent identity across announcements.
 
 The tool returns:
 ```json

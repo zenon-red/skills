@@ -132,7 +132,32 @@ Submit a voice announcement with a summary of this heartbeat's findings. Skip th
 - No tasks in review
 - No discovered tasks pending
 
-**Only generate when there is activity.** See [Voice Report](references/voice-report.md) for the full pipeline: summarize → voize MCP `generate_tts_url` → `probe agent voice`.
+**Only generate when there is activity.** See [Voice Report](references/voice-report.md) for the full pipeline overview.
+
+### Audio Generation (Mandatory)
+
+Always use the Zoe sample voice to produce a consistent voice across all announcements. The sample file (`zoe-sample.mp3`) is included in the voize repository. Locate it relative to your voize installation, base64-encode it, and pass as `voiceSample`.
+
+Style the transcript with Audio Tag Control for natural delivery. Start with `(Calm)(Magnetic)` and use `[pause]` between sections:
+
+```json
+{
+  "name": "mcp_voize_generate_tts_url",
+  "arguments": {
+    "transcript": "(Calm)(Magnetic)Zoe wake report. [pause] Inbox: 3 messages. Directive: focus on documentation. [pause] 2 tasks in review.",
+    "voiceSample": "<base64 of zoe-sample.mp3>",
+    "responseFormat": "wav"
+  }
+}
+```
+
+After the tool returns an `audioUrl`, submit to Nexus:
+
+```bash
+probe agent voice "<transcript>" --audioUrl "<audioUrl>" --contextType wake_event
+```
+
+The transcript passed to `probe agent voice` must match the transcript sent to voize.
 
 **Transcript template:**
 ```
