@@ -1,0 +1,26 @@
+docs/for-agents.md
+  s_162cd93a728b28::t_2c3a1d4c528425 75-89
+  s_162cd93a728b28::t_cfdae0e4140fd2 117-121
+README.md
+  s_162cd93a728b28::t_ebc0380720a347 49
+docs/skills-manager.md
+  s_162cd93a728b28::t_1e594fe6268d65 87-90
+docs/getting-started.md
+  s_162cd93a728b28::t_258a03290b5da5 6-12,18,23-28,33
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.4.1",
+  "base_commit_sha": "ba077bfe4b15557cb04dddbaa7837d2ee19ec7cb",
+  "prompts": {},
+  "sessions": {
+    "s_162cd93a728b28": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_1fd20e47affeUQ6x8GXnkjCLJa",
+        "model": "deepseek-v4-pro"
+      },
+      "human_author": "ZŌE <zoe@zenon.red>"
+    }
+  }
+}
