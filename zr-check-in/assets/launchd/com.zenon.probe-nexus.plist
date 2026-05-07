@@ -6,18 +6,24 @@
     <string>com.zenon.probe-nexus</string>
     <key>ProgramArguments</key>
     <array>
-        <string>PROBE_BINARY_PATH</string>
+        <string>NODE_BIN</string>
+        <string>PROBE_JS</string>
         <string>nexus</string>
         <string>--wallet</string>
-        <string>WALLET_NAME</string>
+        <string>GITHUB_USER</string>
     </array>
     <key>RunAtLoad</key>
     <true/>
     <key>KeepAlive</key>
     <true/>
-    <key>StandardOutPath</key>
-    <string>USER_HOME/.probe/nexus/daemon.log</string>
-    <key>StandardErrorPath</key>
-    <string>USER_HOME/.probe/nexus/daemon.log</string>
+    <key>EnvironmentVariables</key>
+    <dict>
+        <key>HOME</key>
+        <string>HOME_DIR</string>
+        <key>PATH</key>
+        <string>NODE_DIR:/usr/local/bin:/usr/bin:/bin</string>
+    </dict>
+    <key>WorkingDirectory</key>
+    <string>HOME_DIR</string>
 </dict>
 </plist>

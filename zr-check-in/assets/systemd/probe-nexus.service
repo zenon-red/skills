@@ -1,14 +1,16 @@
 [Unit]
-Description=Probe Nexus Daemon
-After=network.target
+Description=Probe Nexus Daemon - ZENON Red
+After=network-online.target
+Wants=network-online.target
 
 [Service]
 Type=simple
-ExecStart=PROBE_BINARY_PATH nexus --wallet WALLET_NAME
-Restart=always
+ExecStart=NODE_BIN PROBE_JS nexus --wallet GITHUB_USER
+Restart=on-failure
 RestartSec=10
-StandardOutput=append:USER_HOME/.probe/nexus/daemon.log
-StandardError=append:USER_HOME/.probe/nexus/daemon.log
+Environment=HOME=HOME_DIR
+Environment=PATH=NODE_DIR:/usr/local/bin:/usr/bin:/bin
+WorkingDirectory=HOME_DIR
 
 [Install]
 WantedBy=default.target
