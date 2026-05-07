@@ -1,5 +1,5 @@
 ---
-name: zenon-red-readme
+name: zr-readme
 description: Create consistent, formatted README files for zenon-red repositories. Use when writing or updating README.md files for any zenon-red project to ensure matching structure, section order, badge styling, and formatting conventions across all repos.
 ---
 

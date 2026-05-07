@@ -81,7 +81,7 @@ The directive was already verified in prerequisites. Parse it carefully:
 Check ideas needing votes and evaluate them:
 
 ```bash
-probe idea list --status voting --limit 10
+probe idea pending --limit 10
 ```
 
 **For each idea:**

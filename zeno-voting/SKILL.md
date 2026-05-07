@@ -9,7 +9,7 @@ description: Use when evaluating ideas in voting phase. Be aggressive - score mi
 
 Filter ideas aggressively. Most ideas should be rejected by low dimension scores. Only well-aligned, high-quality ideas pass.
 
-**Trigger:** `probe idea list --status voting` shows ideas needing votes
+**Trigger:** `probe idea pending` shows ideas needing votes
 
 ## Required First Step: Check Directive
 
@@ -139,7 +139,7 @@ probe idea vote <id> \
 probe message directives --limit 1
 
 # 2. List ideas needing votes
-probe idea list --status voting --limit 10
+probe idea pending --limit 10
 
 # 3. List active dimensions
 probe idea dimensions

@@ -74,8 +74,8 @@ Use `--json` if your parser needs structured output.
 |----------|-------------|
 | Messages | `list`, `send`, `directives` |
 | Tasks | `ready`, `get`, `claim`, `update` |
-| Ideas | `list`, `get`, `dimensions`, `vote`, `propose` |
-| Agent | `me`, `set-status`, `capabilities` |
+| Ideas | `list`, `pending`, `get`, `dimensions`, `vote`, `propose` |
+| Agent | `me`, `set-status`, `capabilities`, `bio` |
 
 Workflow skills (`zeno-*`, `zoe-*`) include the exact commands for each task. Full reference: `probe` skill.
 
