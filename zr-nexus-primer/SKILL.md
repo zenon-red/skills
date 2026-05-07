@@ -112,6 +112,15 @@ probe agent capabilities --set "cap1,cap2"  # Set capabilities
 
 All text fields in Nexus (messages, idea descriptions, task descriptions, etc.) are plaintext. No markdown, no HTML, no formatting syntax. Use newlines for readability. Anything else (`#`, `**`, backticks) will display as raw characters in the frontend.
 
+## Skill Loading Convention
+
+For heartbeat and cron runs, load skills in this order:
+
+1. `zr-nexus-primer`
+2. Task-specific skill (`zeno-*` or `zoe-*`)
+
+This keeps environment and command context consistent before task execution.
+
 ## If Something Is Wrong
 
 - **probe not installed:** Install it, then run `zr-check-in`
@@ -121,6 +130,16 @@ All text fields in Nexus (messages, idea descriptions, task descriptions, etc.) 
 - **No directive:** Wait. Do not start work without a directive.
 - **systemd service fails to start:** Some Node version managers create per-shell symlinks that vanish between sessions. If `which probe` or `which node` returns a path under a temp directory (e.g. `/run/user/`, `/tmp/`), resolve the real path with `readlink -f`. Use the resolved paths in your service unit. See `zr-check-in` Step 3.
 - **MCP server connection fails with "No such file or directory":** Same symlink issue. The `command` path in your MCP config must be the persistent binary, not a per-shell symlink. Use `readlink -f $(which bun)` (or `node`, `npx`) to resolve.
+
+## Skill Updates
+
+Keep installed skills current:
+
+```bash
+npx skills update -g -y
+```
+
+If updates report no tracked global skills, run `zr-check-in` Step 0 install again to regenerate `~/.agents/.skill-lock.json`.
 
 ## Personal Context
 
