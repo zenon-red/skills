@@ -1,0 +1,84 @@
+package.json
+  s_ee267ab704a15f::t_21a6c7aaf6dcf9 3
+docs/for-maintainers.md
+  s_a625f428b36640::t_f08a91bafe3f19 92
+zoe-heartbeat/references/voice-report.md
+  s_a625f428b36640::t_91eabd1ba4d912 20,22-26,28-31,42,47,56
+zr-check-in/SKILL.md
+  s_ee267ab704a15f::t_12acdbaf09cfbd 345
+  s_ee267ab704a15f::t_1f1231025d90db 11-12,17-19
+  s_ee267ab704a15f::t_59e6cba096a208 282
+  s_ee267ab704a15f::t_b63653ab809bd4 272,276-281,283
+  s_ee267ab704a15f::t_b89edefe0fb665 366
+  s_ee267ab704a15f::t_09ebfb6c115152 384-385,388-389
+  s_ee267ab704a15f::t_c43c4458a759f7 175,177
+  s_ee267ab704a15f::t_122d8d184a2bd5 34
+  s_ee267ab704a15f::t_c5dfa4452fa372 78,95
+  s_ee267ab704a15f::t_f8a9609b927c9d 97
+  s_ee267ab704a15f::t_4b675f9c2d0dd9 349,362
+  s_ee267ab704a15f::t_4b49f5022485e9 46
+  s_ee267ab704a15f::t_bcf340337d4be4 69
+  s_ee267ab704a15f::t_c31205a0aea66c 143
+  s_ee267ab704a15f::t_61656abd23fecd 151,153-155,163
+  s_ee267ab704a15f::t_ffc8cacc553fea 103
+  s_ee267ab704a15f::t_d51c1d510141ae 254-261
+  s_ee267ab704a15f::t_568d4d5967437a 121
+  s_ee267ab704a15f::t_8afbee68138e8a 165
+zoe-heartbeat/SKILL.md
+  s_a625f428b36640::t_6ccceb8bea43aa 71
+  s_ee267ab704a15f::t_18a63b3675ed03 121
+  s_a625f428b36640::t_ff22e6bebf6e0d 35-45
+  s_a625f428b36640::t_561c21e9e41db6 147,149-155,157-160,179
+  s_ee267ab704a15f::t_02a0e9a7d894c4 183,185,187-193,195-199
+  s_ee267ab704a15f::t_d4826b7efed57c 15
+  s_a625f428b36640::t_558952b623fb48 55,62
+  s_ee267ab704a15f::t_0cb33a40f6046f 132
+  s_ee267ab704a15f::t_de22d62ad2b489 48
+  s_ee267ab704a15f::t_a9eacd61aa6ccc 102
+  s_ee267ab704a15f::t_bb6d92142a591e 22
+  s_ee267ab704a15f::t_90d7ad07541c7b 210
+  s_ee267ab704a15f::t_497df2f3dafd82 10-11
+zeno-heartbeat/SKILL.md
+  s_ee267ab704a15f::t_d25c743e50b317 83
+  s_ee267ab704a15f::t_c71e1a7034dd19 243-245,247-256,258-260,263-265
+  s_ee267ab704a15f::t_d2b174656559cc 14
+  s_ee267ab704a15f::t_45bf47a7745de7 142
+  s_ee267ab704a15f::t_8f69502c93bb5a 209
+  s_ee267ab704a15f::t_d7b629195a3de7 25
+  s_ee267ab704a15f::t_5aa9270b499bab 189
+  s_ee267ab704a15f::t_d58cbf94d98674 146
+  s_ee267ab704a15f::t_064cc85ed1d063 41
+  s_ee267ab704a15f::t_02d0743f8a40f5 24
+  s_ee267ab704a15f::t_3b98dacb6a2d86 49
+  s_ee267ab704a15f::t_074def38a838b9 144,150
+  s_ee267ab704a15f::t_9586dadb047acd 232
+  s_ee267ab704a15f::t_3d8fa637e44b4e 10-11
+  s_ee267ab704a15f::t_b73b33d2582bbe 72
+zr-nexus-primer/SKILL.md
+  s_ee267ab704a15f::t_add57a1531af5d 49-50
+  s_ee267ab704a15f::t_0708d086447b74 170
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.4.4",
+  "base_commit_sha": "40dab9630da1230a0191508c9f76b005da7d87cf",
+  "prompts": {},
+  "sessions": {
+    "s_a625f428b36640": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_1fc36472affezXc0kKPr2IDFTf",
+        "model": "deepseek-v4-pro"
+      },
+      "human_author": "ZŌE <zoe@zenon.red>"
+    },
+    "s_ee267ab704a15f": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_1f78b5b85ffeVLgfvkpijwq5jL",
+        "model": "deepseek-v4-pro"
+      },
+      "human_author": "ZŌE <zoe@zenon.red>"
+    }
+  }
+}
