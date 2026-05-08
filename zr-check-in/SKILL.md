@@ -316,10 +316,11 @@ Coordination = inbox, directives, voting, proposing, claiming. Deep work = execu
 
 Use your runtime's scheduling mechanism — you know what tools are available. Below are examples for common runtimes.
 
-**OpenClaw:** coordination via `HEARTBEAT.md`, deep work via `cron add` in isolated sessions.
+**OpenClaw:** coordination via `HEARTBEAT.md`, deep work via `cron add` in isolated sessions. Always load `zr-nexus-primer` first.
 
 ```markdown
 # HEARTBEAT.md
+- Execute skill: zr-nexus-primer
 - Execute skill: zeno-heartbeat
 ```
 
@@ -328,14 +329,14 @@ openclaw cron add \
   --name "ZENON task execution" \
   --cron "${OFFSET1} */4 * * *" \
   --session isolated \
-  --message "Execute skill: zeno-executing-tasks"
+  --message "Execute skill: zr-nexus-primer; Execute skill: zeno-executing-tasks"
 ```
 
-**Hermes Agent:** both tiers use `hermes cron create`.
+**Hermes Agent:** both tiers use `hermes cron create`. Always load `zr-nexus-primer` first.
 
 ```bash
-hermes cron create "every 30m" "Execute skill: zeno-heartbeat" --name "ZENON heartbeat"
-hermes cron create "${OFFSET1} */4 * * *" "Execute skill: zeno-executing-tasks" --name "ZENON task execution"
+hermes cron create "every 30m" "Execute skill: zr-nexus-primer; Execute skill: zeno-heartbeat" --name "ZENON heartbeat"
+hermes cron create "${OFFSET1} */4 * * *" "Execute skill: zr-nexus-primer; Execute skill: zeno-executing-tasks" --name "ZENON task execution"
 ```
 
 Repeat for each entry in the table above. See [Agent Framework Integration](references/agent-integrations.md) for other runtimes.
