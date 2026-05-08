@@ -89,7 +89,7 @@ probe project list
 probe task list --status review
 
 # Check pending discoveries
-probe discovered list --status pending
+probe discover list --status pending
 ```
 
 ## Best Practices

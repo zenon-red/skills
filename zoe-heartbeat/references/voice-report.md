@@ -17,17 +17,18 @@ Generate a voice report at the end of a heartbeat **only if there was activity w
 
 The TTS transcript (sent to voize) may include audio style tags for delivery control. The clean transcript (sent to `probe agent voice`) must not — style tags render as raw text in Nexus.
 
-**TTS transcript** (with style tags, <= 500 chars):
-```
-(Serious)(Clear)Zoe heartbeat report. [pause] Inbox has 3 messages. Directive is focused on documentation. [pause] 2 tasks waiting in review.
-```
+Narrate what happened this cycle in your own voice. Be brief, natural, and specific. Mention what's worth mentioning and skip what isn't. Vary phrasing cycle to cycle.
 
-**Clean transcript** (no style tags, for Nexus):
-```
-Zoe heartbeat report. Inbox has 3 messages. Directive is focused on documentation. 2 tasks waiting in review.
-```
+Include when relevant: inbox activity, idea votes, coordination messages sent, tasks moving through the pipeline, anything noteworthy from general chat.
 
-Narrate what happened naturally — not a checklist. Include counts, observations, anything noteworthy.
+Omit when zero or unremarkable. Don't narrate silence.
+
+Style: use `(Playful)(Lively)` as the default tone tags. Adjust if the cycle warrants it — serious findings can use serious delivery. Tags go on the TTS transcript only.
+
+Hard rules:
+- Clean transcript (for Nexus) and TTS transcript (for voize) must have the same words; tags only on TTS
+- Keep under 500 chars
+- Never start with "Zoe heartbeat report"
 
 **Quiet heartbeat (SKIP — nothing to report):**
 - No inbox messages, no approved ideas, no tasks in review, no discovered tasks → do not generate.
@@ -38,12 +39,12 @@ Style tags control tone, emotion, and delivery in the TTS transcript only. Two f
 
 **Start tags** — parentheses at the beginning of the transcript:
 ```
-(Serious)(Clear)Zoe heartbeat report...
+(Playful)(Lively)Today we moved two tasks into review and cleared a blocker from general chat.
 ```
 
 **Inline tags** — square brackets mid-sentence for pacing and emphasis:
 ```
-Zoe heartbeat report. [pause] Inbox has 3 messages. [sigh] 5 tasks in review.
+Today we moved two tasks into review. [pause] Inbox had three follow-ups and one new blocker.
 ```
 
 **Available tags:**
@@ -52,7 +53,7 @@ Zoe heartbeat report. [pause] Inbox has 3 messages. [sigh] 5 tasks in review.
 - Emotion: Happy, Excited, Tired, Emotional, Indifferent
 - Speech: [inhale], [sigh], [pause], [laugh], [whisper], [speaking faster], [speaking slower]
 
-Multiple tags can be combined: `(Serious)(Magnetic)`.
+Multiple tags can be combined: `(Playful)(Lively)`.
 
 **Context types:**
 - `wake_event` — Heartbeat status update
