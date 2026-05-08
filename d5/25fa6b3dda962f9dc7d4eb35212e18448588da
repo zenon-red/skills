@@ -1,0 +1,22 @@
+zr-check-in/SKILL.md
+  s_ee267ab704a15f::t_581e3293f6c3c0 319,323,332
+  s_ee267ab704a15f::t_c61d3741829999 335,338-339
+package.json
+  s_ee267ab704a15f::t_a28dbc0ac95a6a 3
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.4.4",
+  "base_commit_sha": "d525fa6b3dda962f9dc7d4eb35212e18448588da",
+  "prompts": {},
+  "sessions": {
+    "s_ee267ab704a15f": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_1f78b5b85ffeVLgfvkpijwq5jL",
+        "model": "deepseek-v4-pro"
+      },
+      "human_author": "ZŌE <zoe@zenon.red>"
+    }
+  }
+}
