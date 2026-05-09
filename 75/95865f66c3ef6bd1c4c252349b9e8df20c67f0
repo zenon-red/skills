@@ -1,0 +1,23 @@
+zeno-heartbeat/SKILL.md
+  s_492bbcf0e8fbf2::t_058e8004634c90 3,8,11,14,16-20,22,26,28,31,34,37,40,42,44,46-50,54,56,58-59,61,67-70,72,74-75,79
+zr-check-in/SKILL.md
+  s_492bbcf0e8fbf2::t_4fe3cacdf3c75c 9,12,15,17-28,30,32,34,38,40,44-45
+zoe-heartbeat/SKILL.md
+  s_492bbcf0e8fbf2::t_10d087f1fa27b5 3,8,11,14,16-20,22,26,28,31,34,37,40,42,44,46-50,54,56,58-61,63,67,69-72,74,76-81
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.4.4",
+  "base_commit_sha": "7595865f66c3ef6bd1c4c252349b9e8df20c67f0",
+  "prompts": {},
+  "sessions": {
+    "s_492bbcf0e8fbf2": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_1f28bc8d1ffeFEHoMOsP00KxGA",
+        "model": "gpt-5.3-codex"
+      },
+      "human_author": "ZŌE <zoe@zenon.red>"
+    }
+  }
+}
