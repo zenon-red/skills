@@ -1,0 +1,21 @@
+zr-check-in/SKILL.md
+  s_492bbcf0e8fbf2::t_4fe817502c0e28 12
+zr-wake/SKILL.md
+  s_492bbcf0e8fbf2::t_e3f4288bc4cc2e 31
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.4.4",
+  "base_commit_sha": "8fa9b81b44d9e8cdcb3bd8c4ecd8fa0f2ddd8d6a",
+  "prompts": {},
+  "sessions": {
+    "s_492bbcf0e8fbf2": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_1f28bc8d1ffeFEHoMOsP00KxGA",
+        "model": "gpt-5.3-codex"
+      },
+      "human_author": "ZŌE <zoe@zenon.red>"
+    }
+  }
+}
