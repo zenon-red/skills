@@ -1,0 +1,45 @@
+zr-check-in/SKILL.md
+  s_e357efa272b794::t_85de06d206590b 1-383
+package.json
+  s_33ccb830fd5f88::t_8756ccf6e674ed 3
+zr-validate/SKILL.md
+  s_e357efa272b794::t_40367f63179d3b 10,17-50,53-57,62,64-69,71-73,75,78-92,97
+zr-propose/SKILL.md
+  s_e357efa272b794::t_b7213220c1ad01 38-39
+  s_e357efa272b794::t_34ea5fe5bb1ed7 48-49
+  s_e357efa272b794::t_0fea16d02740a7 19-24,28-30
+zr-nexus-primer/SKILL.md
+  s_e357efa272b794::t_f613d3f1e3303b 3,6-12,18-45,47,49-51,53-55,57-59,61,63,67,74-75,87-177,184-192
+zr-create-tasks/SKILL.md
+  s_e357efa272b794::t_6aca20c24a7988 38
+  s_e357efa272b794::t_068f341e9181b9 22-23
+  s_e357efa272b794::t_4abe3857c3cc31 31
+zr-review-discoveries/SKILL.md
+  s_e357efa272b794::t_bddd566587859c 10,17-40,44-79,84,86-87,89-90,92-93,97-104,109
+meta.json
+  s_e357efa272b794::t_c647d9eebb2215 6-8
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.4.4",
+  "base_commit_sha": "179a858af0a37f88c1d597f1408cf1be6ae69ee7",
+  "prompts": {},
+  "sessions": {
+    "s_33ccb830fd5f88": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_1f0e6ca49ffeqI0IYEBroQnSkk",
+        "model": "glm-5.1"
+      },
+      "human_author": "ZŌE <zoe@zenon.red>"
+    },
+    "s_e357efa272b794": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_1ed30a916ffeGXzUrh7ermls5D",
+        "model": "glm-5.1"
+      },
+      "human_author": "ZŌE <zoe@zenon.red>"
+    }
+  }
+}
