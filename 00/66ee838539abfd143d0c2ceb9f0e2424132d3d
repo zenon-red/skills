@@ -1,0 +1,59 @@
+zr-doctor/SKILL.md
+  s_33ccb830fd5f88::t_71830feb2e7ff3 3-39
+docs/for-maintainers.md
+  s_33ccb830fd5f88::t_8081865fab3f76 1,3,5,7,9-12,14,16-21,23,27-28,32,34-36
+wip/README.md
+  s_33ccb830fd5f88::t_a48c065d2b8806 1-9
+voize/META.md
+  s_33ccb830fd5f88::t_23a8ab0a46f515 7
+docs/architecture.md
+  s_33ccb830fd5f88::t_102ff19db30d45 5,7-10,12,14-16,18,20-29,31,33
+README.md
+  s_33ccb830fd5f88::t_feb9904638fc9d 3,5,7-10,12,14,20,23-33,36,38-47,49,51-55,57,61,63-66
+  s_33ccb830fd5f88::t_5cd9025628da1f 59
+probe/META.md
+  s_33ccb830fd5f88::t_23a8ab0a46f515 6-7
+docs/for-agents.md
+  s_33ccb830fd5f88::t_a0ac00594d0d53 1,3,5,7-10,12,14-23,25,27-29,31,34-37
+zr-nexus-primer/SKILL.md
+  s_33ccb830fd5f88::t_b3633d0895ce12 3,6,8,10-13,15,17-26,28,30-33
+package.json
+  s_33ccb830fd5f88::t_8756ccf6e674ed 3
+docs/getting-started.md
+  s_33ccb830fd5f88::t_db60722c5cd0c0 9,12-13,16,18,20-29,31,34-38
+zr-execute/SKILL.md
+  s_33ccb830fd5f88::t_f1d2a6f6cc5228 3-43
+zr-inbox/SKILL.md
+  s_33ccb830fd5f88::t_6e21ced65e47df 2-20,23-28,31,35,39,48-51
+  s_33ccb830fd5f88::t_26041dde22d2cb 21-22,29-30,33-34,37-38,42-46
+zr-review-discoveries/SKILL.md
+  s_33ccb830fd5f88::t_737b473ce49a1a 3-36
+zr-create-tasks/SKILL.md
+  s_33ccb830fd5f88::t_cdfdc8f3f5dcbc 3-37
+meta.json
+  s_33ccb830fd5f88::t_551892126e9926 12
+probe/SKILL.md
+  s_33ccb830fd5f88::t_23a8ab0a46f515 3,8,10-13,15,17,19,22-23,26,29-30,33,35,37-45,47,49-54,56,58,61,64,66,68-77,79,81,83,85-88,90,93-98,101,103-105,107,109,111-112,115,117-118,120,122-124
+CONTRIBUTING.md
+  s_33ccb830fd5f88::t_e7ca0496e24e75 11
+probe/references/commands.md
+  s_33ccb830fd5f88::t_23a8ab0a46f515 11-29,33-35,37-38,184-202,211-218,232-237
+probe/references/sql.md
+  s_33ccb830fd5f88::t_23a8ab0a46f515 206,214,225,231,237,250-257,264,270,279,281,283,288,297,305-306,314,316,330-334
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.4.4",
+  "base_commit_sha": "0066ee838539abfd143d0c2ceb9f0e2424132d3d",
+  "prompts": {},
+  "sessions": {
+    "s_33ccb830fd5f88": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_1f0e6ca49ffeqI0IYEBroQnSkk",
+        "model": "glm-5.1"
+      },
+      "human_author": "ZŌE <zoe@zenon.red>"
+    }
+  }
+}
