@@ -3,6 +3,9 @@
     "zr-propose": {
       "type": "manual"
     },
+    "zr-check-in": {
+      "type": "manual"
+    },
     "zr-claim": {
       "type": "manual"
     },

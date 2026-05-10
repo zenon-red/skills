@@ -19,7 +19,8 @@ Create a high-quality task set for one routed project.
 1. Read project objective and constraints.
 2. Define 3-8 independent tasks with explicit acceptance criteria.
 3. Add dependencies only when strictly necessary.
-4. Mark tasks as ready and post a summary.
+4. Create tasks and verify the ready queue.
+5. Post a summary with project and task IDs.
 
 ## Commands
 
@@ -27,11 +28,11 @@ Create a high-quality task set for one routed project.
 probe project get <project-id>
 probe task create --project-id <project-id> --title "<title>" --description "<acceptance-criteria>"
 probe task ready --limit 20
-probe message send general "Created task set for project <project-id>."
+probe message send general "Created task set for project <project-id>: <task-ids>."
 ```
 
 ## Output Contract
 
 - Project has a usable ready queue.
 - Tasks are scoped for a single execution cycle each.
-- Summary message includes project and task IDs.
+- Summary message includes project ID and all created task IDs.
