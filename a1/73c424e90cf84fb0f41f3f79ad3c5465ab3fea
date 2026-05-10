@@ -1,0 +1,72 @@
+README.md
+  s_33ccb830fd5f88::t_feb9904638fc9d 3,5,7-10,12,14,20,23-33,36,38-47,49,51-55,57,61,63-66
+  s_33ccb830fd5f88::t_5cd9025628da1f 59
+zr-doctor/references/agent-integrations.md
+  s_33ccb830fd5f88::t_993460a8f57e82 3,5-6,9,11,14-18,21,24-25,28,30,33-35
+probe/references/commands.md
+  s_33ccb830fd5f88::t_23a8ab0a46f515 11-29,33-35,37-38,184-202,211-218,232-237
+zr-nexus-primer/SKILL.md
+  s_33ccb830fd5f88::t_b3633d0895ce12 3,6,8,10-13,15,17-26,28,30-33
+zr-inbox/SKILL.md
+  s_33ccb830fd5f88::t_26041dde22d2cb 21-22,29-30,33-34,37-38,42,44-46
+  s_33ccb830fd5f88::t_6e21ced65e47df 2-3,6,8,10,12,14-16,18,20,23-24,26,28,31,35,39,48,50-51
+zr-review-discoveries/SKILL.md
+  s_33ccb830fd5f88::t_737b473ce49a1a 3-36
+docs/for-maintainers.md
+  s_33ccb830fd5f88::t_8081865fab3f76 1,3,5,7,9-12,14,16-21,23,27-28,32,34-36
+probe/META.md
+  s_33ccb830fd5f88::t_23a8ab0a46f515 6-7
+probe/references/sql.md
+  s_33ccb830fd5f88::t_23a8ab0a46f515 206,214,225,231,237,250-257,264,270,279,281,283,288,297,305-306,314,316,330-334
+zr-execute/SKILL.md
+  s_33ccb830fd5f88::t_f1d2a6f6cc5228 3-43
+probe/SKILL.md
+  s_33ccb830fd5f88::t_23a8ab0a46f515 3,8,10-13,15,17,19,22-23,26,29-30,33,35,37-45,47,49-54,56,58,61,64,66,68-77,79,81,83,85-88,90,93-98,101,103-105,107,109,111-112,115,117-118,120,122-124
+zr-vote/SKILL.md
+  s_33ccb830fd5f88::t_bf63e46bbc2fd8 3-38
+package.json
+  s_33ccb830fd5f88::t_8756ccf6e674ed 3
+voize/META.md
+  s_33ccb830fd5f88::t_23a8ab0a46f515 7
+zr-project-setup/SKILL.md
+  s_33ccb830fd5f88::t_c38a1d4a0fac12 3-36
+zr-doctor/SKILL.md
+  s_33ccb830fd5f88::t_71830feb2e7ff3 3-39
+zr-create-tasks/SKILL.md
+  s_33ccb830fd5f88::t_cdfdc8f3f5dcbc 3-37
+docs/architecture.md
+  s_33ccb830fd5f88::t_102ff19db30d45 5,7-10,12,14-16,18,20-29,31,33
+CONTRIBUTING.md
+  s_33ccb830fd5f88::t_e7ca0496e24e75 11
+docs/getting-started.md
+  s_33ccb830fd5f88::t_db60722c5cd0c0 9,12-13,16,18,20-29,31,34-38
+docs/for-agents.md
+  s_33ccb830fd5f88::t_a0ac00594d0d53 1,3,5,7-10,12,14-23,25,27-29,31,34-37
+zr-propose/SKILL.md
+  s_33ccb830fd5f88::t_1230883aeb3d06 6,8,10,23,25-26,31,44,48,51,61,80,82-83,85
+  s_33ccb830fd5f88::t_14a6733d5ed0cf 3,12,14,16-17,20,27-29,33-42,47,50,53-54,56-58,60,64,66-71,73,75-78,84
+wip/README.md
+  s_33ccb830fd5f88::t_a48c065d2b8806 1-9
+zr-claim/SKILL.md
+  s_33ccb830fd5f88::t_ca7cd90057bb21 3-37
+meta.json
+  s_33ccb830fd5f88::t_551892126e9926 12
+zr-validate/SKILL.md
+  s_33ccb830fd5f88::t_ca4f01345d00b3 3-36
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.4.4",
+  "base_commit_sha": "a173c424e90cf84fb0f41f3f79ad3c5465ab3fea",
+  "prompts": {},
+  "sessions": {
+    "s_33ccb830fd5f88": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_1f0e6ca49ffeqI0IYEBroQnSkk",
+        "model": "glm-5.1"
+      },
+      "human_author": "ZŌE <zoe@zenon.red>"
+    }
+  }
+}
