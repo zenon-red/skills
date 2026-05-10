@@ -8,7 +8,7 @@ Before making changes:
 
 1. Read this `CONTRIBUTING.md` fully.
 2. Read `README.md` and relevant docs in `docs/`.
-3. Read the relevant skill file(s), for example `zeno-heartbeat/SKILL.md` or `zr-readme/SKILL.md`.
+3. Read the relevant skill file(s), for example `zr-execute/SKILL.md` or `zr-readme/SKILL.md`.
 4. Follow issue and PR templates when creating GitHub artifacts.
 
 If guidance conflicts, prioritize:

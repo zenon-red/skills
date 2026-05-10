@@ -203,6 +203,7 @@ CREATE TABLE identity_roles (
 SpacetimeDB supports a **subset** of SQL. Use only these patterns:
 
 ### SELECT
+
 ```sql
 SELECT col1, col2 FROM table
 SELECT * FROM table
@@ -210,6 +211,7 @@ SELECT COUNT(*) AS name FROM table
 ```
 
 ### WHERE
+
 ```sql
 WHERE col = 'string'
 WHERE col = 123
@@ -220,16 +222,19 @@ WHERE col > 5 AND col < 10
 ```
 
 ### JOIN
+
 ```sql
 SELECT a.*, b.col FROM table_a a JOIN table_b b ON a.id = b.a_id
 ```
 
 ### LIMIT
+
 ```sql
 SELECT * FROM table LIMIT 50
 ```
 
 ### NOT Supported
+
 - `ORDER BY` - Sort client-side
 - `GROUP BY`, `HAVING`
 - `SUM`, `AVG`, `MIN`, `MAX` (only `COUNT` works)
@@ -242,25 +247,27 @@ SELECT * FROM table LIMIT 50
 
 Complex SpacetimeDB types (enums, Options, Timestamps) return as arrays:
 
-| Type | Example Output | Meaning |
-|------|---------------|---------|
-| `Option<T>` (None) | `[1, []]` | None |
-| `Option<T>` (Some) | `[0, value]` | Some(value) |
-| `Option<String>` (Some) | `[0, "orion"]` | Some("orion") |
-| Enum (variant 0) | `[0, []]` | First variant (e.g., 'open') |
-| Enum (variant 1) | `[1, []]` | Second variant (e.g., 'claimed') |
-| Timestamp | `[1771837772951695]` | Microseconds since epoch |
+| Type                    | Example Output       | Meaning                          |
+| ----------------------- | -------------------- | -------------------------------- |
+| `Option<T>` (None)      | `[1, []]`            | None                             |
+| `Option<T>` (Some)      | `[0, value]`         | Some(value)                      |
+| `Option<String>` (Some) | `[0, "orion"]`       | Some("orion")                    |
+| Enum (variant 0)        | `[0, []]`            | First variant (e.g., 'open')     |
+| Enum (variant 1)        | `[1, []]`            | Second variant (e.g., 'claimed') |
+| Timestamp               | `[1771837772951695]` | Microseconds since epoch         |
 
 **Best Practice:** Select only primitive columns (`TEXT`, `BIGINT`, `BOOLEAN`) for readable output.
 
 ## Query Examples
 
 Good (primitives only):
+
 ```sql
 SELECT id, title, priority, created_by FROM tasks LIMIT 20
 ```
 
 Complex types return arrays:
+
 ```sql
 SELECT id, status, assigned_to FROM tasks LIMIT 2
 -- Output: status[2]: [0, []], assigned_to[2]: [1, []]
@@ -269,14 +276,16 @@ SELECT id, status, assigned_to FROM tasks LIMIT 2
 ## Output
 
 ### Default (TOON)
+
 Token-efficient format. Clean tables for primitive columns:
+
 ```yaml
-query_1[5]{id,title,priority}:
-  1,"Task A",5
+query_1[5]{id,title,priority}: 1,"Task A",5
   2,"Task B",7
 ```
 
 Complex types show as arrays:
+
 ```yaml
 query_1[2]:
   - id: 1
@@ -285,6 +294,7 @@ query_1[2]:
 ```
 
 ### JSON Mode (`--json`)
+
 ```json
 {
   "success": true,
@@ -292,8 +302,8 @@ query_1[2]:
     "query_1": {
       "columns": ["id", "title", "priority"],
       "rows": [
-        {"id": 1, "title": "Task A", "priority": 5},
-        {"id": 2, "title": "Task B", "priority": 7}
+        { "id": 1, "title": "Task A", "priority": 5 },
+        { "id": 2, "title": "Task B", "priority": 7 }
       ]
     }
   }
@@ -301,7 +311,9 @@ query_1[2]:
 ```
 
 ### With `--meta`
+
 Adds timing info:
+
 ```json
 {
   "query_1": {...},
@@ -315,8 +327,8 @@ Adds timing info:
 
 ## Error Handling
 
-| Status | Error Code | Meaning |
-|--------|------------|---------|
-| 401 | `AUTH_REQUIRED` | Token expired or invalid |
-| 400 | `SQL_INVALID` | Syntax error or invalid query |
-| timeout | `SQL_UNAVAILABLE` | Request timed out |
+| Status  | Error Code        | Meaning                       |
+| ------- | ----------------- | ----------------------------- |
+| 401     | `AUTH_REQUIRED`   | Token expired or invalid      |
+| 400     | `SQL_INVALID`     | Syntax error or invalid query |
+| timeout | `SQL_UNAVAILABLE` | Request timed out             |

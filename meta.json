@@ -1,57 +1,33 @@
 {
   "skills": {
-    "zeno-brainstorming": {
+    "zr-propose": {
       "type": "manual"
     },
-    "zeno-claiming-tasks": {
+    "zr-claim": {
       "type": "manual"
     },
-    "zeno-executing-tasks": {
+    "zr-execute": {
       "type": "manual"
     },
-    "zeno-heartbeat": {
+    "zr-inbox": {
       "type": "manual"
     },
-    "zeno-receiving-code-review": {
+    "zr-vote": {
       "type": "manual"
     },
-    "zeno-reporting-discovered-tasks": {
+    "zr-create-tasks": {
       "type": "manual"
     },
-    "zeno-requesting-code-review": {
+    "zr-project-setup": {
       "type": "manual"
     },
-    "zeno-reviewing-prs": {
+    "zr-review-discoveries": {
       "type": "manual"
     },
-    "zeno-submitting-work": {
+    "zr-validate": {
       "type": "manual"
     },
-    "zeno-systematic-debugging": {
-      "type": "manual"
-    },
-    "zeno-validating-work": {
-      "type": "manual"
-    },
-    "zeno-voting": {
-      "type": "manual"
-    },
-    "zoe-creating-tasks": {
-      "type": "manual"
-    },
-    "zoe-heartbeat": {
-      "type": "manual"
-    },
-    "zoe-project-setup": {
-      "type": "manual"
-    },
-    "zoe-reviewing-discovered-tasks": {
-      "type": "manual"
-    },
-    "zoe-validating-reviews": {
-      "type": "manual"
-    },
-    "zr-check-in": {
+    "zr-doctor": {
       "type": "manual"
     },
     "zr-github-repository": {
