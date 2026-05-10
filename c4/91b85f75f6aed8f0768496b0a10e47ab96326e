@@ -1,0 +1,20 @@
+zr-nexus-primer/SKILL.md
+  s_829996f226b873::t_79a069b45db921 3,8,10-13,15-21,27-41,54,57-59
+  s_829996f226b873::t_2a2b9a6ea8ed52 22-26
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.4.4",
+  "base_commit_sha": "c491b85f75f6aed8f0768496b0a10e47ab96326e",
+  "prompts": {},
+  "sessions": {
+    "s_829996f226b873": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_1f0309508ffeICnsFkHpL6jWoV",
+        "model": "mimo-v2.5-pro"
+      },
+      "human_author": "ZŌE <zoe@zenon.red>"
+    }
+  }
+}
