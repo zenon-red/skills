@@ -1,0 +1,27 @@
+meta.json
+  s_4de04b55a65a58::t_3084cfec678f2b 51-55
+seti/SKILL.md
+  s_4de04b55a65a58::t_9ff4f1d60b93b4 1-93,95
+seti/references/cli.md
+  s_4de04b55a65a58::t_aa8dcf08f29cc6 1-43
+seti/references/mcp.md
+  s_4de04b55a65a58::t_19f531aa7c8535 1-67
+seti/META.md
+  s_4de04b55a65a58::t_1733d0fa206276 1-5,7
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.4.4",
+  "base_commit_sha": "992b43347f084832df58af5e691791cea469099e",
+  "prompts": {},
+  "sessions": {
+    "s_4de04b55a65a58": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_1e9bed020ffel6Slhg8yBMdtbz",
+        "model": "glm-5.1"
+      },
+      "human_author": "ZŌE <zoe@zenon.red>"
+    }
+  }
+}
