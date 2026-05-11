@@ -48,6 +48,11 @@
       "type": "external",
       "repo": "https://github.com/zenon-red/voize",
       "source": "skills/voize"
+    },
+    "seti": {
+      "type": "external",
+      "repo": "https://github.com/zenon-red/seti",
+      "source": "skills/seti"
     }
   }
 }
