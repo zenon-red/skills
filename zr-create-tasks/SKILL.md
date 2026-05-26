@@ -30,7 +30,7 @@ probe project get <project-id>
 probe task create --project <project-id> --title "<title>" --description "<acceptance-criteria>"
 probe task ready --limit 20
 probe message send general "Created task set for project <project-id>: <task-ids>." --context action:<action-id>
-probe action complete <action-id>
+probe action complete-tasks <action-id>
 ```
 
 ## Output Contract

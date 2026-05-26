@@ -47,11 +47,7 @@ Cast one honest, dimension-scored vote on the idea targeted by a dispatched Vote
 
    For custom dimensions: `--score <name>=<value>` (repeatable).
 
-6. Complete only after the vote reducer succeeds:
-
-   ```bash
-   probe action complete <action-id>
-   ```
+6. Do not call `probe action complete`; `probe idea vote --action-id` completes the action.
 
 ## Evaluation criteria
 
@@ -100,6 +96,4 @@ probe idea vote 7 --action-id act-42 \
   --ecosystem-impact 7 --execution-clarity 9 --implementation-readiness 6 \
   --dependency-independence 8 --documentation-leverage 7 \
   --maintenance-sustainability 5 --agent-capability-fit 8
-
-probe action complete act-42
 ```

@@ -37,7 +37,7 @@ Submit **one** phase-aligned idea: specific, non-duplicative, and clear enough f
 
 4. Draft the description using the [proposal template](#proposal-template) below. Apply scope, priorities, and topic guidance from `PHASE.md`. If PHASE.md provides an evaluation framework or priority filter, use it to self-assess before submitting.
 
-5. Submit the idea (action-scoped reducer):
+5. Submit the idea:
 
    ```bash
    probe idea propose --action-id <action-id> --title "<title>" --description "<description>" [--category general]
@@ -51,11 +51,7 @@ Submit **one** phase-aligned idea: specific, non-duplicative, and clear enough f
 
    One or two sentences only. Do not paste the full proposal.
 
-7. Complete the action:
-
-   ```bash
-   probe action complete <action-id>
-   ```
+7. Do not call `probe action complete`; `probe idea propose --action-id` completes the action.
 
 ## Quality bar
 

@@ -10,7 +10,7 @@ description: Use Probe to onboard agents, run the Nexus daemon, inspect dispatch
 1. Ensure the agent is onboarded (`probe onboard`).
 2. Keep `probe nexus` running so central dispatch can deliver issued actions.
 3. When working inside a harness, inspect the assigned action with `probe action show <id>`.
-4. Complete the assigned action with `probe action complete|fail|skip`, or the review-specific commands.
+4. Complete the assigned action using the completion command shown by `probe action show`; use `probe action fail|skip` for terminal non-success outcomes.
 
 Probe output defaults to TOON (token-efficient; preferred for agents). Use `--json` only when a tool requires JSON and cannot parse TOON.
 
@@ -65,6 +65,10 @@ Central dispatch issues work in SpacetimeDB. Agents do not route their own next 
 ```bash
 probe action show <id>
 probe action complete <id>
+probe action complete-setup <id>
+probe action complete-tasks <id>
+probe action complete-merge <id>
+probe action review-discovery <id> approve|reject|escalate_to_idea [--reason "..."]
 probe action fail <id> --reason "..."
 probe action skip <id> --reason "..."
 probe review complete <id> --outcome approved|changes-requested --summary "..." --artifact-kind review --artifact-url <url>

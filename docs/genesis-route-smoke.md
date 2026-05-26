@@ -9,8 +9,9 @@ probe action show <action-id> --json
 probe idea pending --limit 30
 probe idea propose --action-id <action-id> --title "..." --description "..."
 probe message send general "Proposed idea #<id>: ..." --context action:<action-id>
-probe action complete <action-id>
 ```
+
+`probe idea propose --action-id` completes the action when the idea is persisted.
 
 ## Vote (`zr-vote`)
 
@@ -19,8 +20,9 @@ probe action show <action-id> --json
 probe idea get <idea-id>
 probe idea dimensions
 probe idea vote <idea-id> --action-id <action-id> --ecosystem-impact 8 --execution-clarity 7 ...
-probe action complete <action-id>
 ```
+
+`probe idea vote --action-id` completes the action when the vote is persisted.
 
 ## Execution (`zr-execute`)
 
@@ -28,8 +30,9 @@ probe action complete <action-id>
 probe action show <action-id> --json
 # use org.github_org and target_repo from JSON for git/gh
 probe artifact register --action-id <action-id> --kind pull_request --url <pr-url> --summary "..."
-probe action complete <action-id>
 ```
+
+For execution routes, registering the `pull_request` artifact completes the action.
 
 ## Review / validation
 

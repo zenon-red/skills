@@ -81,18 +81,20 @@ Discovery goes through normal idea flow (voting, quorum, etc.).
 ## Commands
 
 ```bash
-# Load discovery context
+probe action show <action-id> --json
 probe discover get <discover-id>
 
 # Approve
-probe discover review <discover-id> approve [--reason "<reason>"]
+probe action review-discovery <action-id> approve [--reason "<reason>"]
 
 # Reject
-probe discover review <discover-id> reject [--reason "<reason>"]
+probe action review-discovery <action-id> reject [--reason "<reason>"]
 
 # Escalate to community voting
-probe discover review <discover-id> escalate_to_idea [--reason "<reason>"]
+probe action review-discovery <action-id> escalate_to_idea [--reason "<reason>"]
 ```
+
+For ad-hoc discovery review outside dispatch, `probe discover review <discover-id> ...` remains available.
 
 ## Anti-Patterns
 

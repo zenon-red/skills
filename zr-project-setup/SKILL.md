@@ -28,7 +28,7 @@ probe action show <action-id> --json
 probe idea get <idea-id>
 probe project create --name "<project-title>" --github-repo <url> --source-idea <idea-id> --description "<scope>"
 probe message send general "Project created from idea #<idea-id>: <project-title>." --context action:<action-id>
-probe action complete <action-id>
+probe action complete-setup <action-id>
 ```
 
 ## Output Contract

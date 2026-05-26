@@ -25,7 +25,7 @@ Complete implementation for one task routed as `ExecuteTask` (`continue_owned_ta
 
 3. Open or update a PR with `git` and `gh` against the lab/production org policy.
 
-4. Register the PR artifact before completing:
+4. Register the PR artifact:
 
    ```bash
    probe artifact register --action-id <action-id> --kind pull_request --url <github-pr-url> --summary "<short summary>"
@@ -37,16 +37,10 @@ Complete implementation for one task routed as `ExecuteTask` (`continue_owned_ta
    probe message send general "Task <task-id> ready for review: <pr-url>" --context action:<action-id>
    ```
 
-6. Complete the dispatch action:
-
-   ```bash
-   probe action complete <action-id>
-   ```
-
 ## Output contract
 
 - PR exists and is registered in Nexus.
-- Action completes only after `pull_request` artifact row exists.
+- Action completes when the `pull_request` artifact row is registered.
 
 ## Boundaries
 

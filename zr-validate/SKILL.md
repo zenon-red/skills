@@ -83,3 +83,16 @@ probe review validate <action-id> --outcome valid --summary "<why>" --artifact-u
 
 - Routed ValidateReview action is completed with `valid` or `invalid`.
 - Validation summary is explicit and audit-friendly.
+
+## Merge-ready dispatch (`MergeReadyTask`)
+
+When routed a merge-ready task action instead of validation:
+
+```bash
+probe action show <action-id> --json
+probe task get <task-id>
+# merge the linked PR or otherwise finalize the task, then:
+probe action complete-merge <action-id>
+```
+
+Do not call `probe action complete` for merge-ready routes.
