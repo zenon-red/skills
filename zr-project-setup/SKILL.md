@@ -1,6 +1,6 @@
 ---
 name: zr-project-setup
-description: Convert one approved idea into an executable project when probe next routes project_setup.
+description: Convert one approved idea into an executable project when dispatched a ProjectSetup action.
 ---
 
 # zr-project-setup
@@ -11,7 +11,7 @@ Create a project record from one approved idea and set it up for task decomposit
 
 ## Inputs
 
-- `probe next` output with `kind: project_setup`
+- dispatched action payload with `kind: ProjectSetup`
 - routed approved idea ID
 
 ## Steps
@@ -24,13 +24,14 @@ Create a project record from one approved idea and set it up for task decomposit
 ## Commands
 
 ```bash
+probe action show <action-id> --json
 probe idea get <idea-id>
-probe project create --idea-id <idea-id> --title "<project-title>" --description "<scope>"
-probe project update <project-id> --status ready_for_tasks
-probe message send general "Project <project-id> created from idea <idea-id>."
+probe project create --name "<project-title>" --github-repo <url> --source-idea <idea-id> --description "<scope>"
+probe message send general "Project created from idea #<idea-id>: <project-title>." --context action:<action-id>
+probe action complete <action-id>
 ```
 
 ## Output Contract
 
-- One project created and linked to the approved idea.
-- Project is in a status that enables task generation.
+- One project created and linked to the approved idea (`--source-idea`).
+- Project record exists with `active` status (default); task creation follows human plan approval per Nexus lifecycle.

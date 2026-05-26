@@ -7,4 +7,4 @@ description: Deprecated compatibility skill. Validation is now routed through zr
 
 This legacy skill is retained for compatibility only.
 
-Use `probe next` and follow `zr-validate` for final validation decisions.
+Use dispatched action context and follow `zr-validate` for final validation decisions.

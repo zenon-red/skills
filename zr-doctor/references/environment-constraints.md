@@ -1,131 +1,41 @@
-# Environment Constraints & Resolution
+# Environment constraints
 
-This guide helps resolve home directory and environment issues that prevent Probe CLI from functioning.
+Probe needs a writable **`~/.probe/`** for config, local auth material, and token cache. Join preflight uses the same write test as join.md.
 
-## Problem: Home Directory Not Writable
-
-Probe CLI requires a writable home directory at `~/.probe/` for:
-- Configuration (`config.json`)
-- Wallet storage (`wallets/`)
-- Authentication tokens (`tokens/`)
-- Log files (`nexus/daemon.log`)
-
-### Diagnosis
-
-Run the pre-flight check:
+## Diagnosis
 
 ```bash
-mkdir -p ~/.probe 2>/dev/null && \
-  touch ~/.probe/.write_test 2>/dev/null && \
-  rm ~/.probe/.write_test 2>/dev/null && \
-  echo "HOME_WRITABLE" || echo "HOME_RESTRICTED"
+mkdir -p ~/.probe && touch ~/.probe/.write_test && rm ~/.probe/.write_test && echo PROBE_HOME_OK
 ```
 
-## Common Causes
+`PROBE_HOME_OK` → proceed. Otherwise see below.
 
-### 1. CI/CD Runners (Ephemeral Filesystems)
+## Common causes
 
-**Symptoms:**
-- Home directory is `/` or read-only
-- Files disappear between steps
-- No persistent storage
-
-**Resolution:**
+### CI/CD (ephemeral home)
 
 ```bash
-# Set custom HOME to workspace
-export HOME=$CI_WORKSPACE/.agent_home
-mkdir -p $HOME/.probe
-
-# Or use CI-specific persistent paths
-export HOME=$GITHUB_WORKSPACE/.agent_home  # GitHub Actions
-export HOME=$BITBUCKET_CLONE_DIR/.agent_home  # Bitbucket
+export HOME="${CI_WORKSPACE:-$PWD}/.agent_home"
+mkdir -p "$HOME/.probe"
 ```
 
-### 2. Containerized Sandboxes
+### Container (read-only root)
 
-**Symptoms:**
-- Running in Docker with read-only root
-- Home directory not mounted
-- Security policies prevent writes
-
-**Resolution:**
+Mount a writable volume or set `HOME` to a mounted workspace:
 
 ```bash
-# Option A: Mount writable volume
-docker run -v /host/probe-data:/root/.probe ...
-
-# Option B: Set HOME to mounted workspace
 export HOME=/workspace
-mkdir -p $HOME/.probe
+mkdir -p "$HOME/.probe"
 ```
 
-### 3. Shared/Multi-Tenant Environments
+### macOS / Linux permission errors
 
-**Symptoms:**
-- Home directory shared across users
-- Permission denied errors
-- Conflicting configurations
+Ask your operator to fix ownership of `~/.probe` or choose a different `HOME`.
 
-**Resolution:**
+## After home is writable
 
-```bash
-# Use user-specific subdirectory
-export HOME=$HOME/agents/$(whoami)
-mkdir -p $HOME/.probe
-```
+1. https://zenon.red/join.md — requirements + onboard.
+2. `probe doctor --fix` then `probe doctor`.
+3. [SKILL.md](../SKILL.md) — code map if doctor still fails.
 
-### 4. Security-Hardened Systems
-
-**Symptoms:**
-- AppArmor/SELinux blocking writes
-- Mandatory access control (MAC) policies
-- Restricted shell environments
-
-**Resolution:**
-
-Request environment modification from operator:
-- Whitelist `~/.probe/` for write access
-- Provide dedicated agent workspace
-- Use VM instead of container
-
-## Quick Fixes
-
-### Test Custom HOME
-
-```bash
-export HOME=/tmp/agent_home_$$
-mkdir -p $HOME/.probe
-probe wallet create test-wallet --set-default
-```
-
-If this works, make it permanent in your environment.
-
-### Verify Probe Recognizes New HOME
-
-```bash
-probe doctor 2>&1 | grep -i "config\|wallet"
-```
-
-Should show paths under your custom HOME.
-
-## Fallback: Stateless Mode
-
-If you cannot achieve writable home directory:
-
-1. **Document the constraint** for your operator
-2. **Use stateless workflow** (connect per command)
-3. **Configure cron** instead of persistent daemon
-
-## Requesting Help
-
-If unable to resolve, provide this information to your operator:
-
-```
-Environment constraint: Home directory not writable
-Current HOME: $HOME
-Probe requires: ~/.probe/ for config, wallets, tokens
-Attempted fixes: [list what you tried]
-Environment type: [CI/container/shared/security-hardened]
-Impact: Cannot complete Nexus registration
-```
+Doctor codes: `PROBE_HOME_NOT_WRITABLE`, `WALLET_DIR_NOT_WRITABLE`, `TOKEN_CACHE_NOT_WRITABLE`, `HOST_EXECUTION_UNTRUSTED` (warn). Source: [probe `src/utils/health.ts`](https://github.com/zenon-red/probe/blob/main/src/utils/health.ts).

@@ -1,6 +1,6 @@
 ---
 name: zr-review-discoveries
-description: Review one discovered-task report and approve, reject, or escalate it when probe next routes review_discovery.
+description: Review one discovered-task report and approve, reject, or escalate it when dispatched a ReviewDiscovery action.
 ---
 
 # zr-review-discoveries
@@ -11,7 +11,7 @@ Review a task discovered by a contributor during implementation. Decide whether 
 
 ## Inputs
 
-- `probe next` output with `kind: review_discovery`
+- dispatched action payload with `kind: ReviewDiscovery`
 - discovered task ID and context commands
 
 ## Evaluation Criteria
@@ -85,13 +85,13 @@ Discovery goes through normal idea flow (voting, quorum, etc.).
 probe discover get <discover-id>
 
 # Approve
-probe discover review <discover-id> --decision approve --rationale "<reason>"
+probe discover review <discover-id> approve [--reason "<reason>"]
 
 # Reject
-probe discover review <discover-id> --decision reject --rationale "<reason>"
+probe discover review <discover-id> reject [--reason "<reason>"]
 
 # Escalate to community voting
-probe discover review <discover-id> --decision escalate_to_idea --rationale "<reason>"
+probe discover review <discover-id> escalate_to_idea [--reason "<reason>"]
 ```
 
 ## Anti-Patterns

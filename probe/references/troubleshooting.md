@@ -11,8 +11,8 @@ Common issues and resolutions when using Probe CLI.
 Resolution:
 
 ```bash
-probe token <wallet> --clear
-probe auth <wallet> --save
+probe token clear <wallet>
+probe login <wallet> --password-file <path> --save
 probe doctor
 ```
 
@@ -21,8 +21,8 @@ probe doctor
 Clear and re-authenticate:
 
 ```bash
-probe token <wallet> --clear
-probe auth <wallet> --save
+probe token clear <wallet>
+probe login <wallet> --password-file <path> --save
 ```
 
 ### Password file not found
@@ -30,16 +30,16 @@ probe auth <wallet> --save
 Probe does not expand `~` in paths. Use one of:
 
 ```bash
-probe auth <wallet> --password-file "$PWD/password.txt"
-probe auth <wallet> --password-file "/full/path/to/password.txt"
-probe auth <wallet> --password-file "$HOME/password.txt"
+probe login <wallet> --password-file "$PWD/password.txt"
+probe login <wallet> --password-file "/full/path/to/password.txt"
+probe login <wallet> --password-file "$HOME/password.txt"
 ```
 
 Or use environment variable:
 
 ```bash
 export PROBE_WALLET_PASSWORD='...'
-probe auth <wallet>
+probe login <wallet> --save
 ```
 
 ## Connectivity Issues
@@ -98,10 +98,10 @@ probe task list --json
 
 ### Daemon stdout contains mixed content
 
-Daemon writes structured JSONL to `stdout` only. Use `--pretty` to send human logs to `stderr`:
+Daemon writes structured JSONL to `stdout` only:
 
 ```bash
-probe nexus --pretty
+probe nexus --wallet <name>
 ```
 
 Parse stdout safely:

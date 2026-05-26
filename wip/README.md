@@ -1,6 +1,6 @@
 # WIP Skills
 
-This folder temporarily holds legacy skills not included in the active `probe next` routed workflow.
+This folder temporarily holds legacy skills not included in the active central-dispatch workflow.
 
 Notes:
 

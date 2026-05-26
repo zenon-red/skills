@@ -1,51 +1,59 @@
 ---
 name: zr-inbox
-description: Process routed inbox or directive messages from probe next and respond with concrete updates before returning to probe next.
+description: Read and apply an authorized #general directive routed by central dispatch (ActionKind Inbox, route AuthorizedDirective).
 ---
 
 # zr-inbox
 
 ## Job
 
-Complete one routed inbox action from `probe next`.
+Complete one **authorized directive** action from central dispatch. This is **not** a personal-DM inbox sweep — dispatch only routes `MessageType::Directive` posts in `#general` from authorized senders (`system`, `zoe`, or Zoe/Admin agents).
 
 ## Inputs
 
-- `probe next` output with `kind: inbox`
-- target type: `message` or `directive`
-- context commands from router output
+From the dispatched action (see `probe action show <id>`):
+
+| Field | Typical value |
+| --- | --- |
+| `kind` | `Inbox` |
+| `route` | `AuthorizedDirective` |
+| `target_type` | `message` |
+| `target_id` | Directive message id |
+| `skill` | `zr-inbox` |
+| `reason_code` | `AUTHORIZED_DIRECTIVE` |
+
+The harness prompt includes `Instruction: Review authorized directive message #<id>`.
 
 ## Steps
 
-1. Run the provided context command first.
-2. If target is `message`, inspect personal inbox messages; if target is `directive`, read latest general directive.
-3. Extract concrete asks, constraints, owners, and deadlines.
-4. Execute only the requested action that fits this wake.
-5. Send a concise response with outcome, blockers, or next handoff.
-
-## Commands
+1. `probe action show <id>` — confirm route and target id.
+2. Read the directive by **id** (do not fetch “latest” directive):
 
 ```bash
-# List your recent personal inbox messages.
-# Use when target type is message.
-probe message list <agent-id> --limit 10
-
-# Read the latest directive from #general.
-# Use when target type is directive.
-probe message directives general --limit 1
-
-# Send your response to the routed channel
-# (general, project channel, or direct agent channel).
-probe message send <channel> "<reply>"
+probe message directives general --context <target-id> --limit 1
 ```
 
-## Command Intent
+3. Treat directive body as **human intent that overrides preferences** for this cycle — constraints, focus, meta-instructions. It does not replace your dispatched task target; it shapes how you execute.
+4. Apply what is actionable now within this wake. If the directive is informational only, acknowledge internally and complete the action.
+5. Close the action:
 
-- `probe message list <agent-id> --limit 10`: fetches newest direct messages to your personal channel so you can identify actionable requests.
-- `probe message directives general --limit 1`: fetches the most recent org directive that triggered `READ_DIRECTIVE` routing.
-- `probe message send <channel> "<reply>"`: publishes completion status, clarification, or blocker update to close the inbox action.
+```bash
+probe action complete <id>
+# or: probe action skip <id> --reason "..." / probe action fail <id> --reason "..."
+```
 
-## Output Contract
+## What not to do
 
-- Reply posted to the correct channel.
-- If action is deferred, include reason and what follow-up is needed.
+- Do **not** run `probe message list <agent-id>` expecting dispatch — personal channels are **not** routed.
+- Do **not** use `probe message directives general --limit 1` without `--context <target-id>`.
+- Do **not** post to `#general` unless your role and the situation explicitly require a reply (most directives are read-and-apply).
+
+## Output contract
+
+- Directive read by routed id.
+- Action closed with `complete`, `skip`, or `fail` and a clear reason.
+- Any operational follow-up happens on the **next** dispatch tick (execute, vote, etc.) — not by inventing a new action.
+
+## Source
+
+Dispatch: [nexus `stdb/src/reducers/dispatch/tick.rs`](https://github.com/zenon-red/nexus/blob/main/stdb/src/reducers/dispatch/tick.rs) (`issue_authorized_directives`).

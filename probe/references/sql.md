@@ -12,7 +12,7 @@ probe query --tables              # List all available tables
 
 ## Authentication
 
-SQL queries require a cached authentication token. Run `probe auth <wallet> --save` first.
+SQL queries require a cached authentication token. Run `probe login <wallet> --save` first.
 
 ## Endpoint
 

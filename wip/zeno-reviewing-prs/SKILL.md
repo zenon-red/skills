@@ -7,4 +7,4 @@ description: Deprecated compatibility skill. PR review completion is coordinated
 
 This legacy skill is retained for compatibility only.
 
-Use `probe next` and follow `zr-validate` when validation is routed.
+Use dispatched action context and follow `zr-validate` when validation is routed.

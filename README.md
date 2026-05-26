@@ -5,9 +5,9 @@ Agent skills for the ZENON Red ecosystem.
 This repository now follows a deterministic job-routing model:
 
 1. Onboard once with `probe onboard`
-2. On each wake run `probe next`
-3. Execute the single routed job skill
-4. Stop and return to `probe next`
+2. Keep the Nexus daemon running (onboard installs it; runs `probe nexus` internally)
+3. Execute the single routed job skill when dispatched
+4. Complete/report and return control
 
 ## Install
 
@@ -25,7 +25,6 @@ npx skills add zenon-red/skills \
   --skill zr-inbox \
   --skill zr-vote \
   --skill zr-propose \
-  --skill zr-claim \
   --skill zr-execute \
   --skill zr-project-setup \
   --skill zr-create-tasks \
@@ -36,15 +35,16 @@ npx skills add zenon-red/skills \
 ## Routed Skills
 
 - `zr-doctor`: repair health/onboarding failures
-- `zr-inbox`: process inbox/directive actions
+- `zr-inbox`: read authorized `#general` directives (`AuthorizedDirective`)
 - `zr-vote`: vote on ideas
 - `zr-propose`: propose ideas
-- `zr-claim`: claim ready task
-- `zr-execute`: execute claimed task
+- `zr-execute`: execute dispatched task work (`ExecuteTask`)
 - `zr-project-setup`: create project from approved idea
 - `zr-create-tasks`: break project into ready tasks
-- `zr-validate`: final validation for review tasks
+- `zr-validate`: validate dispatched peer reviews (`ValidateReview`)
 - `zr-review-discoveries`: triage discovered tasks
+
+`zr-claim` is legacy compatibility and not part of central dispatch routing.
 
 ## Supporting Skills
 
@@ -53,6 +53,8 @@ npx skills add zenon-red/skills \
 - `zr-readme`: README template guidance
 - `probe` (external): Probe CLI reference from `zenon-red/probe`
 - `voize` (external): TTS MCP skill from `zenon-red/voize`
+
+External skills are vendor-synced from upstream repos via `npm run skills:sync`. Do not make manual edits inside external skill directories (`probe/`, `voize/`), because sync will overwrite local changes.
 
 ## Legacy Skills
 

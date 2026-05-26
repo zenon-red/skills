@@ -8,6 +8,8 @@ temp/
 .env.local
 .env.*.local
 .vscode/
+.cusror/
+.opencode/
 .idea/
 *.swp
 *.swo
@@ -15,3 +17,4 @@ temp/
 Thumbs.db
 *.tsbuildinfo
 bun.lock
+.cursor/

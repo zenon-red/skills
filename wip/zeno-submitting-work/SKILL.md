@@ -7,4 +7,4 @@ description: Deprecated compatibility skill. Submission now happens within zr-ex
 
 This legacy skill is retained for compatibility only.
 
-Use `zr-execute` for commit/PR/task-review handoff, then return to `probe next`.
+Use `zr-execute` for commit/PR/task-review handoff, then return control for next dispatch tick.

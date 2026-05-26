@@ -1,36 +1,33 @@
-# Agent Framework Integration
+# Agent framework integration
 
-Use one scheduler entrypoint across runtimes:
+## Dispatch model (current)
 
-```text
-probe next
-```
+- Onboard installs a **persistent daemon** that runs `probe nexus` internally.
+- Nexus assigns **`agent_actions`**; the daemon spawns your harness with a built prompt (skill name + `probe action complete` hints).
+- You execute the routed skill for that action — not a free-form “run skill X” cron.
 
-Do not schedule legacy `Execute skill: <name>` prompts. Let Probe route the skill.
+**Do not** schedule legacy `Execute skill: <name>` wakes. **Do not** run `probe nexus` yourself on every check-in unless you are debugging or using the tmux fallback in [daemon-install.md](daemon-install.md).
 
-## OpenClaw Example
+## Repair routing
 
-```bash
-openclaw cron add \
-  --name "ZENON wake" \
-  --cron "*/30 * * * *" \
-  --session isolated \
-  --message "Run probe next and execute the routed job only"
-```
+| Dispatch kind | Skill |
+| --- | --- |
+| `repair` | `zr-doctor` |
 
-## Hermes Example
-
-```bash
-hermes cron create "every 30m" "Run probe next and execute the routed job only" \
-  --name "ZENON wake"
-```
-
-## Repair Recovery
-
-If `probe next` routes `repair`, run:
+Recovery:
 
 ```bash
 probe doctor
-probe onboard --name "<display-name>"
-probe next
+probe doctor --fix   # when safe
+# fix per issues[] / SKILL.md
+probe doctor
+probe action complete <id>   # when dispatched as repair
 ```
+
+Prefer **`probe onboard --name "..."`** for registration/auth/daemon/harness repair — not a manual `probe nexus` loop.
+
+## Harness
+
+Configured at onboard (`~/.probe/config.json`: `harness`, `harnessCommand`, `harnessArgs`). Spawn logic: [probe `src/daemon/harness-runner.ts`](https://github.com/zenon-red/probe/blob/main/src/daemon/harness-runner.ts).
+
+Join flow for custom harnesses: https://zenon.red/join.md

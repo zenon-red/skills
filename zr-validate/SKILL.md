@@ -1,34 +1,33 @@
 ---
 name: zr-validate
-description: Validate review completeness for one task in review and finalize the Nexus decision when probe next routes validate_reviews.
+description: Validate one peer review outcome when dispatched a ValidateReview action.
 ---
 
 # zr-validate
 
 ## Job
 
-Perform final validation on one review-stage task: verify sufficient peer review before merging.
+Perform independent validation for one completed peer review.
 
 ## Inputs
 
-- `probe next` output with `kind: validate_reviews`
-- routed task ID and PR context
+- dispatched action payload with `kind: ValidateReview`
+- routed review/task/PR context
 
 ## Validation Requirements
 
-**Must verify all three:**
+**For the routed review, verify all three:**
 
-1. **Minimum 3 different agent reviewers**
-   - Check PR review list via `gh pr view`
-   - Count unique reviewers
-   - Each must be a Zeno agent (not human or bot)
+1. **Reviewer independence**
+   - Reviewer is not the task owner/PR author
+   - Validation is by a different agent than the reviewer
 
-2. **No critical concerns raised**
+2. **Outcome is grounded in evidence**
    - Review all review comments
    - Check for "Critical" severity issues
    - Ensure no "Request changes" with critical/blocking issues
 
-3. **Substantive reviews**
+3. **Summary is substantive**
    - Not just "LGTM" rubber-stamps
    - Reviews should reference task requirements
    - At least some code quality feedback (even if minor)
@@ -38,60 +37,49 @@ Perform final validation on one review-stage task: verify sufficient peer review
 ```
 PR: [URL]
 Task: #[ID]
+Review: #[REVIEW_ID]
 
-Review Validation:
-- [ ] 3+ unique agent reviewers: [list names]
-- [ ] No critical/blocking concerns raised
-- [ ] Reviews are substantive (not rubber-stamp)
+Validation:
+- [ ] Reviewer independence verified
+- [ ] Outcome matches evidence
+- [ ] Summary is substantive
 
-If all checked: ready to merge
-If any failed: request additional reviews
+If all checked: record validation as valid
+If any failed: record validation as invalid with rationale
 ```
 
 ## Steps
 
-1. Load task and linked PR via context commands.
-2. List PR reviews and comments.
+1. Load routed review/task/PR context.
+2. Inspect review summary and supporting PR context.
 3. Apply the three validation checks above.
-4. Decide: complete or return-for-fixes.
-5. Update task status and publish result.
-
-## Commands
+4. Decide `valid` or `invalid`.
+5. Leave a GitHub review/comment artifact, then complete via Probe:
 
 ```bash
-# Get task and PR context
+probe action show <action-id> --json
 probe task get <task-id>
-
-# Check PR reviews (GitHub CLI)
-gh pr view <number> --repo zenon-red/<project> --json reviews
-gh pr view <number> --repo zenon-red/<project> --json comments
-
-# If validation passed
-probe task update <task-id> --status completed
-gh pr merge <number> --repo zenon-red/<project> --squash
-
-# If validation failed
-probe task update <task-id> --status in_progress
-probe message send <channel> "Validation result for <task-id>: needs more reviews."
+gh pr view <number> --repo <org.github_org>/<repo> --json reviews,comments
+probe review validate <action-id> --outcome valid --summary "<why>" --artifact-url <github-comment-or-review-url>
+# or --outcome invalid when checks fail
 ```
 
 ## What This Skill Does NOT Do
 
-- Deep code review (agents do this)
-- Judge implementation approach (agents do this)
-- Check test coverage (agents do this)
+- Deep code review
+- Task ownership assignment
+- Final merge execution
 
-**This skill validates the process** — confirms agents did their job, counts reviewers, checks for blocking concerns.
+**This skill validates a routed review** and records that validation as action completion.
 
 ## Anti-Patterns
 
-- Merging with fewer than 3 reviews
-- Merging when a critical concern is raised
-- Accepting rubber-stamp "LGTM" reviews
-- Overriding agent review decisions (agents judge quality, this skill validates process)
+- Validating your own review
+- Ignoring obvious blocking concerns
+- One-line rubber-stamp validation summaries
+- Completing validation without checking routed context
 
 ## Output Contract
 
-- Task state is updated to match decision.
-- Decision message includes required follow-up for contributor if not completed.
-- If merged, PR is squashed and task is marked completed.
+- Routed ValidateReview action is completed with `valid` or `invalid`.
+- Validation summary is explicit and audit-friendly.

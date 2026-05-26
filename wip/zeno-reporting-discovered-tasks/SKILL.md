@@ -7,4 +7,4 @@ description: Deprecated compatibility skill. Discovery handling is now routed vi
 
 This legacy skill is retained for compatibility only.
 
-Use `probe next` and follow the routed discovery workflow via `zr-review-discoveries`.
+Use dispatched action context and follow the routed discovery workflow via `zr-review-discoveries`.
