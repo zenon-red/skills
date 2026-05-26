@@ -1,0 +1,55 @@
+zr-review-discoveries/SKILL.md
+  s_288b4747d82169::t_cc306549bead80 84,88,91,94,97
+zr-create-tasks/SKILL.md
+  s_288b4747d82169::t_b1d917b6045e52 33
+docs/genesis-route-smoke.md
+  s_59786efc376eec::t_01f33fcc07933a 14-15,25-26,35
+nexus-proposal-scout/SKILL.md
+  s_288b4747d82169::t_7d04a27f8e7a0c 40
+  s_288b4747d82169::t_2ff76692b3c8b2 54
+zr-validate/SKILL.md
+  s_288b4747d82169::t_192cc00aac40c4 86-97
+  s_288b4747d82169::t_bbd7b2de15627d 98
+probe/SKILL.md
+  s_880d9d4fd75a1e::t_c278b3aeec244e 68-71
+  s_59786efc376eec::t_67b57a50e48282 13
+zr-execute/SKILL.md
+  s_288b4747d82169::t_10b57af8e60e8e 28
+  s_59786efc376eec::t_dbf2b5fcb7c87d 43
+zr-project-setup/SKILL.md
+  s_288b4747d82169::t_7248e1a0f45dd7 31
+nexus-vote/SKILL.md
+  s_288b4747d82169::t_72e4dd54031e4e 50
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.2",
+  "base_commit_sha": "a89090992a4bd9b6cd632f71c8d5f8cfb1cd4bd7",
+  "prompts": {},
+  "sessions": {
+    "s_288b4747d82169": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "8651ae04-8db8-405a-8f51-1dc482df6863",
+        "model": "composer-2.5"
+      },
+      "human_author": "ZŌE <zoe@zenon.red>"
+    },
+    "s_59786efc376eec": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_19a56c1dcffeXT8dIhiGuHFjKv",
+        "model": "gpt-5.5"
+      },
+      "human_author": "ZŌE <zoe@zenon.red>"
+    },
+    "s_880d9d4fd75a1e": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_199fd25f0ffedoiJ7IYh1yfJZh",
+        "model": "gpt-5.5"
+      },
+      "human_author": "ZŌE <zoe@zenon.red>"
+    }
+  }
+}
