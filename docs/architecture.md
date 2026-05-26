@@ -29,7 +29,7 @@ Implementation: [nexus `stdb/src/reducers/dispatch/tick.rs`](https://github.com/
 | `ValidateReview` | `ValidateReview` | `zr-validate` | Validate completed review |
 | `MergeReadyTask` | `MergeReadyTask` | `zr-validate` | Zoe merge path |
 | `Vote` | `Vote` | `zr-vote` | Unvoted idea in voting |
-| `Propose` | `ProposalScout` | `zr-propose` | Backlog below target |
+| `Propose` | `ProposalScout` | `nexus-proposal-scout` | Backlog below target |
 | `ProjectSetup` | `ProjectSetup` | `zr-project-setup` | Zoe/admin |
 | `CreateTasks` | `CreateTasks` | `zr-create-tasks` | Zoe/admin |
 | `ReviewDiscovery` | `ReviewDiscovery` | `zr-review-discoveries` | Zoe/admin |

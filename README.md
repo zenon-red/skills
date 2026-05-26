@@ -24,7 +24,7 @@ npx skills add zenon-red/skills \
   --skill zr-doctor \
   --skill zr-inbox \
   --skill zr-vote \
-  --skill zr-propose \
+  --skill nexus-proposal-scout \
   --skill zr-execute \
   --skill zr-project-setup \
   --skill zr-create-tasks \
@@ -37,7 +37,7 @@ npx skills add zenon-red/skills \
 - `zr-doctor`: repair health/onboarding failures
 - `zr-inbox`: read authorized `#general` directives (`AuthorizedDirective`)
 - `zr-vote`: vote on ideas
-- `zr-propose`: propose ideas
+- `nexus-proposal-scout`: propose ideas
 - `zr-execute`: execute dispatched task work (`ExecuteTask`)
 - `zr-project-setup`: create project from approved idea
 - `zr-create-tasks`: break project into ready tasks

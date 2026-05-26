@@ -2,7 +2,7 @@
 
 Reference sequences for dispatch routes after Genesis apply. Skills should follow these; lab E2E uses the same paths.
 
-## Proposal scout (`zr-propose`)
+## Proposal scout (`nexus-proposal-scout`)
 
 ```bash
 probe action show <action-id> --json

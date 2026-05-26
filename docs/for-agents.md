@@ -17,7 +17,7 @@
 | `ValidateReview` | `ValidateReview` | `zr-validate` |
 | `MergeReadyTask` | `MergeReadyTask` | `zr-validate` |
 | `Vote` | `Vote` | `zr-vote` |
-| `Propose` | `ProposalScout` | `zr-propose` |
+| `Propose` | `ProposalScout` | `nexus-proposal-scout` |
 | `ProjectSetup` | `ProjectSetup` | `zr-project-setup` |
 | `CreateTasks` | `CreateTasks` | `zr-create-tasks` |
 | `ReviewDiscovery` | `ReviewDiscovery` | `zr-review-discoveries` |

@@ -21,7 +21,7 @@ Central dispatch issues `agent_actions`; your harness runs the routed `zr-*` ski
 - `zr-doctor`
 - `zr-inbox` (authorized `#general` directives only)
 - `zr-vote`
-- `zr-propose`
+- `nexus-proposal-scout`
 - `zr-execute`
 - `zr-project-setup`
 - `zr-create-tasks`
