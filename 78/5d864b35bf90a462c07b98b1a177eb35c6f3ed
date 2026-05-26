@@ -1,0 +1,52 @@
+docs/genesis-route-smoke.md
+  s_6caf54a3ac3f93::t_6304ba9df810aa 5
+docs/getting-started.md
+  s_6caf54a3ac3f93::t_06232a7afeb842 24
+nexus-proposal-scout/SKILL.md
+  s_9875ecf9f56f88::t_397f8996abee2a 38,41,46-47,52,55,60-83,85-88,90,92-94,97,103,106,109,112,115,118,122-123,125,128,131-134,136-143
+  s_6caf54a3ac3f93::t_92916af4f5d04a 2-3,6
+  s_9875ecf9f56f88::t_aafff2f0224d80 20,26-28
+nexus-vote/SKILL.md
+  s_9875ecf9f56f88::t_c51399d28bc0de 84
+  s_9875ecf9f56f88::t_2b17915493c441 2-3,6,8,10,12,14-16,18-19,21-22,31-39,50,56-62,64-72,78-82,85-86,88-92,95,98-99,103-105
+  s_9875ecf9f56f88::t_06f4379aa23101 87,93-94,96-97,100-102
+  s_9875ecf9f56f88::t_51c66f9a6137e3 17,83
+  s_9875ecf9f56f88::t_194f642b781283 20,29
+  s_9875ecf9f56f88::t_28d535cc9b8343 77
+  s_9875ecf9f56f88::t_a678523b47965e 76
+docs/architecture.md
+  s_6caf54a3ac3f93::t_2dbca2e4a908de 32
+meta.json
+  s_6caf54a3ac3f93::t_400aa7527d2a46 3
+zr-nexus-primer/SKILL.md
+  s_6caf54a3ac3f93::t_2a1c342281ec41 73
+README.md
+  s_6caf54a3ac3f93::t_016c26add13464 40
+  s_6caf54a3ac3f93::t_c31221619dd617 27
+docs/for-agents.md
+  s_6caf54a3ac3f93::t_583436758a0e75 20
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.2",
+  "base_commit_sha": "785d864b35bf90a462c07b98b1a177eb35c6f3ed",
+  "prompts": {},
+  "sessions": {
+    "s_6caf54a3ac3f93": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "770267c0-67e3-4733-8621-97c0769d9db4",
+        "model": "composer-2.5"
+      },
+      "human_author": "ZŌE <zoe@zenon.red>"
+    },
+    "s_9875ecf9f56f88": {
+      "agent_id": {
+        "tool": "pi",
+        "id": "019e651b-afaf-7736-9ad0-ef46985940ef",
+        "model": "glm-5.1"
+      },
+      "human_author": "ZŌE <zoe@zenon.red>"
+    }
+  }
+}
