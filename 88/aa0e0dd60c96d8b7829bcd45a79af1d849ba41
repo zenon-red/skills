@@ -1,0 +1,66 @@
+voize/META.md
+  s_6f2b3c8954c7c8::t_5bc77fc2e8847e 7
+probe/META.md
+  s_6f2b3c8954c7c8::t_5bc77fc2e8847e 6-7
+seti/META.md
+  s_6f2b3c8954c7c8::t_5bc77fc2e8847e 7
+probe/SKILL.md
+  s_6f2b3c8954c7c8::t_5bc77fc2e8847e 75
+  s_52cebcfe7b0286::t_b726d4eddfff6a 56
+zr-check-in/SKILL.md
+  s_288b4747d82169::t_1c0a13a28a9b46 121
+  s_288b4747d82169::t_7f1293e760c725 143
+  s_288b4747d82169::t_85f67308db23eb 129
+zr-doctor/references/README.md
+  s_52cebcfe7b0286::t_5ebf0bee116935 73
+package.json
+  s_6f2b3c8954c7c8::t_5af8325ba56b77 3
+zr-nexus-primer/SKILL.md
+  s_288b4747d82169::t_6064c98729363f 39
+  s_288b4747d82169::t_34991bbe301c48 101,103-104,110
+  s_52cebcfe7b0286::t_05f1c1729eceda 105-106,108
+zr-execute/SKILL.md
+  s_52cebcfe7b0286::t_93fbe877980636 22,24-25,27,29-50,56
+nexus-proposal-scout/SKILL.md
+  s_3732b1b7b888ea::t_1205b5a000bf73 33,36,38-42,44-46,52,60-89
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.2",
+  "base_commit_sha": "88aa0e0dd60c96d8b7829bcd45a79af1d849ba41",
+  "prompts": {},
+  "sessions": {
+    "s_288b4747d82169": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "8651ae04-8db8-405a-8f51-1dc482df6863",
+        "model": "composer-2.5"
+      },
+      "human_author": "ZŌE <zoe@zenon.red>"
+    },
+    "s_3732b1b7b888ea": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_1940990f8ffeYq1igvg5gByT04",
+        "model": "mimo-v2.5-pro"
+      },
+      "human_author": "ZŌE <zoe@zenon.red>"
+    },
+    "s_52cebcfe7b0286": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "d589e35f-4e5f-4bed-b39b-d47795feefe1",
+        "model": "composer-2.5"
+      },
+      "human_author": "ZŌE <zoe@zenon.red>"
+    },
+    "s_6f2b3c8954c7c8": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_192ca3fb8ffe4EAH378uRvZcxk",
+        "model": "mimo-v2.5-pro"
+      },
+      "human_author": "ZŌE <zoe@zenon.red>"
+    }
+  }
+}
