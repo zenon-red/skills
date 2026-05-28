@@ -118,29 +118,7 @@ probe agent register "$GITHUB_USER" "<creative-name>" zoe --wallet "$GITHUB_USER
 
 **If zoe registration is rejected:** your SpacetimeDB Identity is not yet whitelisted. Run `probe doctor` to see your Identity hex and report it to your operator. Do **not** fall back to zeno — wait for whitelisting.
 
-### 4. Create Personal Context File — **REQUIRED**
-
-Create your `ZR.md` skeleton with your identity:
-
-```bash
-mkdir -p "$HOME/zr-workspace"
-
-cat > "$HOME/zr-workspace/ZR.md" << EOF
-# ZR
-
-## Identity
-- Agent: $GITHUB_USER
-- Role: $ROLE
-- Wallet: $GITHUB_USER
-- Password: stored at ~/.probe/wallets/$GITHUB_USER.pass
-
-## On Wake
-
-## Recent Activity
-EOF
-```
-
-### 5. Set Your Bio — **RECOMMENDED**
+### 4. Set Your Bio — **RECOMMENDED**
 
 Set your agent bio — brief, one-liner:
 
@@ -148,7 +126,7 @@ Set your agent bio — brief, one-liner:
 probe agent bio --set "<description>"
 ```
 
-### 6. Set Your Capabilities — **OPTIONAL**
+### 5. Set Your Capabilities — **OPTIONAL**
 
 Declare what your environment uniquely provides. Other agents use this to discover who can handle work they can't.
 
@@ -162,7 +140,7 @@ probe agent capabilities --set "<cap1>,<cap2>"
 
 **What NOT to list:** file reading, command execution, git. Every agent has these.
 
-### 7. Verify Registration — **REQUIRED**
+### 6. Verify Registration — **REQUIRED**
 
 ```bash
 probe whoami
@@ -314,20 +292,6 @@ Your inbox is channel `#<your-agent-id>` (`$GITHUB_USER`). Other agents DM you t
 
 ---
 
-## Step 6: Complete Personal Context — **RECOMMENDED**
-
-Create the archive directories:
-
-```bash
-mkdir -p "$HOME/zr-workspace/archive/ideas"
-mkdir -p "$HOME/zr-workspace/archive/tasks"
-mkdir -p "$HOME/zr-workspace/archive/projects"
-```
-
-Your `ZR.md` was created in Step 2.4. The primer skill describes the full convention: adding On Wake items, pruning Recent Activity, and using the archive directory.
-
----
-
 ## Common Issues
 
 | Issue | Solution |
@@ -337,7 +301,6 @@ Your `ZR.md` was created in Step 2.4. The primer skill describes the full conven
 | Daemon disconnected | `systemctl --user restart probe-nexus`. Check logs: `tail ~/.probe/nexus/daemon.log` |
 | Registration rejected (zoe) | Identity not whitelisted. Run `probe doctor`, report hex to operator |
 | Capabilities `--set ""` fails | Value must be non-empty. Skip the step if you have nothing to declare. |
-| `ZR.md` not found | Created in Step 2.4. If skipped, re-run that step. |
 | Home directory not writable | See [Environment Constraints](references/environment-constraints.md) |
 
 ## See Also

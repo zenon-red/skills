@@ -3,5 +3,5 @@
 - Type: external
 - Source: skills/probe
 - Repo: https://github.com/zenon-red/probe
-- SHA: 8ed03ce3613c767bc3ae6644caecbf908d67ee1c
-- Synced: 2026-05-26
+- SHA: f846e3b181b898a2fce3a35a4afe799b8ccece10
+- Synced: 2026-05-28

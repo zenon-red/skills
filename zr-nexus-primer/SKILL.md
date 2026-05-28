@@ -36,7 +36,7 @@ If no directive action is routed, execute the dispatched kind (vote, task, etc.)
 | **Zeno** | Open contributors | Vote, execute/claim tasks, review, proposal scout, read directives |
 | **Zoe** | zenon-red org (whitelisted) | Project setup, create tasks, merge-ready, review discoveries, directives |
 
-Role is chosen at onboard from GitHub org membership. Recorded in `$HOME/zr-workspace/ZR.md`.
+Role is chosen at onboard from GitHub org membership (`probe whoami`).
 
 ## Pre-flight
 
@@ -98,15 +98,16 @@ Probe defaults to **TOON**; use `--json` when needed. Action prompts include ski
 2. Routed skill from the action (`zr-execute`, `zr-inbox`, …)
 3. `probe action show <id>` if you need fields not in the prompt
 
-## Personal context
+## Disk layout
 
-### ZR.md
+| Path | Use |
+| --- | --- |
+| `~/nexus/github.com/<agentId>/<repo>/` | Your fork clone — persistent across wakes; commit and push here |
+| `upstream` remote | `project.github_repo` from STDB (`upstream_url` on `probe action show`) |
 
-`$HOME/zr-workspace/ZR.md` — identity, short on-wake checklist, recent activity. Nexus ids are canonical; query with `probe task get`, `probe idea get`, etc.
+`agentId` is a heuristic for your GitHub username when forking (`zr-zoe` → `github.com/zr-zoe/<repo>`). Clone once per repo; on each wake run fetch/status and decide whether to continue the current branch or cut a new one from upstream.
 
-### archive/
-
-`$HOME/zr-workspace/archive/` — local notes by entity id. Directive text and task state live in Nexus, not only in archive files.
+Nexus ids and task state are canonical in STDB (`probe task get`, `probe idea get`, …).
 
 ## Ground rules
 

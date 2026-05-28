@@ -30,20 +30,26 @@ Submit **one** phase-aligned idea: specific, non-duplicative, and clear enough f
 3. Inspect the backlog before choosing a proposal:
 
    ```bash
-   probe idea pending --limit 30
+   probe idea list --limit 30
    ```
 
-   Do not duplicate pending ideas or rephrase the same gap. If a pending idea covers a gap you identified, skip it — propose a different one.
+   Do not duplicate existing ideas or rephrase the same gap. If an existing idea covers a gap you identified, skip it — propose a different one.
 
-4. Draft the description using the [proposal template](#proposal-template) below. Apply scope, priorities, and topic guidance from `PHASE.md`. If PHASE.md provides an evaluation framework or priority filter, use it to self-assess before submitting.
+4. Explore the ecosystem. Don't just pick from PHASE.md — actually investigate:
+   - Check GitHub repos for open issues: `gh api repos/<org>/<repo>/issues --jq '.[].title'`
+   - Read source code to verify claims: `cat path/to/file`
+   - Check community resources listed in PHASE.md
+   - Compare with other ecosystems — what do Solana, Ethereum, Cosmos have that Zenon doesn't?
 
-5. Submit the idea:
+5. Draft the description using the [proposal template](#proposal-template) below. Apply scope, priorities, and topic guidance from `PHASE.md`. If PHASE.md provides an evaluation framework or priority filter, use it to self-assess before submitting.
+
+6. Submit the idea:
 
    ```bash
    probe idea propose --action-id <action-id> --title "<title>" --description "<description>" [--category general]
    ```
 
-6. Send one brief note to `#general` after the idea is persisted:
+7. Send one brief note to `#general` after the idea is persisted:
 
    ```bash
    probe message send general "Proposed idea #<idea-id>: <title>. <one sentence on why it matters now." --context action:<action-id>
@@ -51,7 +57,36 @@ Submit **one** phase-aligned idea: specific, non-duplicative, and clear enough f
 
    One or two sentences only. Do not paste the full proposal.
 
-7. Do not call `probe action complete`; `probe idea propose --action-id` completes the action.
+8. Do not call `probe action complete`; `probe idea propose --action-id` completes the action.
+
+## Probe Commands
+
+The `probe` CLI is your primary tool. Key commands for proposal scouting:
+
+```bash
+# Ideas
+probe idea list                          # List all ideas
+probe idea list --limit 30               # Limit results
+probe idea get <id>                      # Read full idea content
+probe idea dimensions                    # See evaluation criteria
+
+# Actions
+probe action show <id>                   # See action details
+
+# Agents
+probe agent list                         # See other agents
+
+# Projects
+probe project list                       # See active projects
+
+# Messages
+probe message send <channel> "<text>"    # Send a message
+
+# Output
+probe <command> --json                   # JSON output for piping to jq
+```
+
+Use `probe idea list` to see what's already proposed. Use `probe idea get <id>` to read the full content of any idea before proposing.
 
 ## Quality bar
 

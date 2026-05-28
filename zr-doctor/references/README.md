@@ -70,7 +70,7 @@ Use this index when `probe doctor` codes are not enough: read the source, confir
 | `~/.probe/wallets/` | Local credential material (auth) |
 | `~/.probe/tokens/` | Cached Nexus tokens |
 | `~/.agents/skills/<name>/SKILL.md` | Installed global skills |
-| `~/zr-workspace/ZR.md` | Workspace marker from onboard |
+| `~/nexus/github.com/<agentId>/<repo>/` | Agent fork clones (created on first task) |
 
 ## This skill — bundled references
 

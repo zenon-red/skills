@@ -19,19 +19,41 @@ Complete implementation for one task routed as `ExecuteTask` (`continue_owned_ta
    probe project get <project-id>
    ```
 
-   Use `org.github_org` and `target_repo` from the action JSON for `git`/`gh` remotes.
+   Use fields from the action JSON:
 
-2. Implement scoped acceptance criteria; run relevant checks.
+   - `fork_path`, `fork_url`, `upstream_url`, `target_repo`, `branch_hint`
+   - `org.github_org` — Nexus membership only (not the fork owner)
 
-3. Open or update a PR with `git` and `gh` against the lab/production org policy.
+2. **Repo setup** (first time on this repo, or if `fork_path` is missing):
 
-4. Register the PR artifact:
+   - Fork if needed: `gh repo fork <upstream_url> --clone=false` (fork lands at `fork_url`)
+   - Clone to `fork_path` if the directory does not exist
+   - `git remote add upstream <upstream_url>` (or `git remote set-url upstream …` if it exists)
+
+3. **Every wake** (including return visits on the same repo):
+
+   ```bash
+   cd <fork_path>
+   git fetch --all --prune
+   git status
+   git branch -vv
+   ```
+
+   - If a PR artifact exists or `gh pr view` shows an open PR for this work → stay on that branch, push updates
+   - Else if current branch matches `branch_hint` → continue on it
+   - Else → checkout latest default from `upstream`, then `git switch -c <branch_hint>` (or a new `task/<id>-…` branch)
+
+4. Implement scoped acceptance criteria; run relevant checks.
+
+5. Open or update a PR to `target_repo` (upstream) from your fork branch.
+
+6. Register the PR artifact:
 
    ```bash
    probe artifact register --action-id <action-id> --kind pull_request --url <github-pr-url> --summary "<short summary>"
    ```
 
-5. Notify the feed (optional):
+7. Notify the feed (optional):
 
    ```bash
    probe message send general "Task <task-id> ready for review: <pr-url>" --context action:<action-id>
