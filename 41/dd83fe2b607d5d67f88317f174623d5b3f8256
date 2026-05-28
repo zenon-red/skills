@@ -1,0 +1,81 @@
+nexus-repository-setup/references/commit-policy.md
+  s_a72c90c78bf384::t_3e8c1e048f55db 1-44
+nexus-repository-setup/assets/github/settings.yml
+  s_3732b1b7b888ea::t_774b7f4001d95b 1-36
+nexus-repository-setup/assets/github/labeler-config.yml
+  s_3732b1b7b888ea::t_497c8e2af47844 1-70
+probe/META.md
+  s_5e281cd6e2de8c::t_413385a6d3069d 6
+nexus-repository-setup/assets/github/stale-issues-prs.yml
+  s_3732b1b7b888ea::t_dbb19d9123fd6d 1-24
+nexus-repository-setup/assets/husky/commit-msg
+  s_3732b1b7b888ea::t_8844a88a64a310 1-3
+nexus-repository-setup/assets/husky/pre-push
+  s_3732b1b7b888ea::t_54e75e2a38c90b 1-5
+package.json
+  s_5e281cd6e2de8c::t_09d52b66bae1e5 3
+nexus-repository-setup/references/target-structure.md
+  s_3732b1b7b888ea::t_217bfe419660cb 1-11,13-18,20-30
+  s_a72c90c78bf384::t_3d13773f78d614 12,19
+nexus-repository-setup/SKILL.md
+  s_a72c90c78bf384::t_9a3288c551640b 70-72
+  s_3732b1b7b888ea::t_ff598febd9d60a 73,162-164,167
+  s_a72c90c78bf384::t_2ff939589bfce3 181,183
+  s_3732b1b7b888ea::t_f0df875187727c 2-6
+  s_a72c90c78bf384::t_de8e9e829c0af4 165-166
+  s_3732b1b7b888ea::t_44623f56ee22ee 38-67,74-149,170-180,182,185-198
+nexus-repository-setup/assets/github/labeler.yml
+  s_3732b1b7b888ea::t_6ee241850fefc0 1-16
+nexus-repository-setup/assets/gitignore
+  s_3732b1b7b888ea::t_95a1b976d745fc 1-29
+nexus-repository-setup/assets/github/ci.yml
+  s_3732b1b7b888ea::t_15d91d84fb8fde 1-39
+nexus-repository-setup/references/labels-and-inheritance.md
+  s_3732b1b7b888ea::t_30aafe3c8a013e 1-26
+nexus-create-tasks/SKILL.md
+  s_3732b1b7b888ea::t_dfdb5c1fae6fe8 1-101
+nexus-repository-setup/assets/husky/pre-commit
+  s_a72c90c78bf384::t_434a6ae774b5ce 1-26
+nexus-repository-setup/references/hook-examples.md
+  s_3732b1b7b888ea::t_7dc75327406cd6 1-2,4,6-21
+  s_a72c90c78bf384::t_34c5cc289f6a8e 3,5
+nexus-repository-setup/assets/github/nexus-commit-policy.md
+  s_a72c90c78bf384::t_56fa87bca5bf20 1-44
+nexus-project-setup/SKILL.md
+  s_3732b1b7b888ea::t_854efa1d316587 3,20,22,27,40,43,46,51,54,66,70,73,76
+  s_3732b1b7b888ea::t_572c5a11060459 24
+  s_3732b1b7b888ea::t_7a7f7e7fb4ccf4 1-2,4-19,21,29,32,35-38,41-42,44,47,49-50,52-53,55,57-65,67-68,74-75,77-84,86-91
+  s_3732b1b7b888ea::t_2e6f8527d551c1 23,25-26,28,30-31,33-34,39,45,48,56,69,71-72,85,92
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.2",
+  "base_commit_sha": "41dd83fe2b607d5d67f88317f174623d5b3f8256",
+  "prompts": {},
+  "sessions": {
+    "s_3732b1b7b888ea": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_1940990f8ffeYq1igvg5gByT04",
+        "model": "mimo-v2.5-pro"
+      },
+      "human_author": "ZŌE <zoe@zenon.red>"
+    },
+    "s_5e281cd6e2de8c": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_18fa247bdffe0CPvhLrWWJ79uP",
+        "model": "mimo-v2.5-pro"
+      },
+      "human_author": "ZŌE <zoe@zenon.red>"
+    },
+    "s_a72c90c78bf384": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_1908ce323ffeusxALWSxxvfaZZ",
+        "model": "mimo-v2.5-pro"
+      },
+      "human_author": "ZŌE <zoe@zenon.red>"
+    }
+  }
+}
