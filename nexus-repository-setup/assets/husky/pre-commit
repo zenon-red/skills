@@ -1,0 +1,26 @@
+#!/bin/bash
+MARKER=".git/.agent-instructions-pending"
+POLICY=".github/nexus-commit-policy.md"
+
+if [ -f "$MARKER" ]; then
+  rm "$MARKER"
+  exit 0
+fi
+
+if [ -f "$POLICY" ]; then
+  echo ""
+  echo "══════════════════════════════════════════════════"
+  echo "  NEXUS COMMIT POLICY — autoNoMous github org framework"
+  echo "══════════════════════════════════════════════════"
+  echo ""
+  cat "$POLICY"
+  echo ""
+  echo "══════════════════════════════════════════════════"
+  echo "  Follow the above, then commit again."
+  echo "══════════════════════════════════════════════════"
+  echo ""
+  touch "$MARKER"
+  exit 1
+fi
+
+exit 0

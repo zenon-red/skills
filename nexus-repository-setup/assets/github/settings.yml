@@ -1,0 +1,36 @@
+repository:
+  name: {name}
+  description: {description}
+  private: false
+  has_issues: true
+  has_projects: false
+  has_wiki: false
+
+labels:
+  - name: bug
+    color: d73a4a
+    description: Something isn't working
+  - name: feature
+    color: 0e8a16
+    description: New feature or request
+  - name: task
+    color: 6f42c1
+    description: Planned implementation work item
+  - name: documentation
+    color: 0075ca
+    description: Improvements or additions to documentation
+  - name: doc
+    color: 0075ca
+    description: Documentation changes
+  - name: code
+    color: 1d76db
+    description: Source code changes
+  - name: dep
+    color: 0366d6
+    description: Dependency updates
+  - name: config
+    color: 5319e7
+    description: Configuration changes
+  - name: pinned
+    color: fbca04
+    description: Exempt from stale
